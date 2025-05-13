@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/bin/Debug/net8.0-ios/iossimulator-arm64/HospiceApp.app/libSystem.Globalization.Native.dylib

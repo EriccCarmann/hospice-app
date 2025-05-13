@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/HospiceApp.app
