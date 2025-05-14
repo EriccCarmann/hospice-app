@@ -32,6 +32,10 @@
 		<data>
 		tq+BnZMCqu3BJmxd0LKDYjr+z/0=
 		</data>
+		<key>Resources/delete.png</key>
+		<data>
+		Rdnfl3yP9mb5pfjRj/RFx11Eklo=
+		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
 		zpXnLSzSJw/k9PLyd7V9FWWnJPY=
@@ -43,6 +47,10 @@
 		<key>Resources/dotnet_bot@3x.png</key>
 		<data>
 		ZavBRK6gzdv0u+OYAINxznb1lzE=
+		</data>
+		<key>Resources/edit.png</key>
+		<data>
+		Nw2U7/Z3xvFh1vYtGcKrirq8ra8=
 		</data>
 		<key>Resources/list.png</key>
 		<data>
@@ -80,14 +88,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pODhOYBS9h8s+ChFSL+ku2Y8sbrNTOyt4ji7VXaotvQ=
+			ixA2opoh3AH/5eVSjO1R7ZmWzF3twmkX28V+QElEJEU=
 			</data>
 		</dict>
 		<key>MonoBundle/HospiceApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZU7JdiNYwqXQDqGooNDKTdmtNUtf87t7cSCHE/MTp7w=
+			b4Fp8Od9Nq6j/liF0jtm1o6j3cWXwebO1OHrXxvFDwQ=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -1700,6 +1708,13 @@
 			Yl5mOkHNyEJ0mH+ri9p6ntzRWZ6wBuP8lyUmgmIYaLY=
 			</data>
 		</dict>
+		<key>Resources/delete.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			H5uOxVVX7qmhokqe2lIvzXqmPlNOSZDsQph/uUQZHTM=
+			</data>
+		</dict>
 		<key>Resources/dotnet_bot.png</key>
 		<dict>
 			<key>hash2</key>
@@ -1719,6 +1734,13 @@
 			<key>hash2</key>
 			<data>
 			ftZ//NybejiBqaUusNcnEH1SLkssxSWkkQlItM9ZxkA=
+			</data>
+		</dict>
+		<key>Resources/edit.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e7k7gMWrdsR88OSrHpvqZ5MZXiutYJSoMzHPjl9MZfM=
 			</data>
 		</dict>
 		<key>Resources/list.png</key>

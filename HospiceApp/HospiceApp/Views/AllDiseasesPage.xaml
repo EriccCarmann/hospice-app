@@ -8,7 +8,7 @@
              x:DataType="viewmodel:AllDiseasesViewModel" 
              x:Class="HospiceApp.Views.AllDiseasesPage">
     <ContentPage.Content>
-         <CollectionView  
+      <CollectionView  
         ItemsSource="{Binding Diseases}"  
         EmptyView="No diseases to display."  
         SelectionMode="None">
@@ -38,19 +38,25 @@
                     Text="{Binding Description}"  
                     FontSize="14"  
                     LineBreakMode="WordWrap" />
-
-                <HorizontalStackLayout  
-                    Spacing="5"  
-                    VerticalOptions="Center">
-                  <Label  
-                      Text="Hospice eligible:"  
-                      FontAttributes="Italic"  
-                      VerticalOptions="Center"/>
-                  <Switch  
-                      IsToggled="{Binding IsHospiceEligible}"  
-                      IsEnabled="False"  
-                      VerticalOptions="Center" />
-                </HorizontalStackLayout>
+                
+                <Grid ColumnDefinitions="Auto,*,Auto" Padding="10">
+                  <HorizontalStackLayout Grid.Column="0" Spacing="10" VerticalOptions="Center">
+                    <Label Text="Hospice eligible:"
+                           FontAttributes="Italic"
+                           VerticalOptions="Center" />
+                    <Switch IsToggled="{Binding IsHospiceEligible}"
+                            IsEnabled="False"
+                            VerticalOptions="Center" />
+                  </HorizontalStackLayout>
+                  <HorizontalStackLayout Grid.Column="2" Spacing="10" VerticalOptions="Center">
+                    <ImageButton Source="edit.png"
+                                 HeightRequest="30"
+                                 WidthRequest="30" />
+                    <ImageButton Source="delete.png"
+                                 HeightRequest="30"
+                                 WidthRequest="30" />
+                  </HorizontalStackLayout>
+                </Grid>
               </VerticalStackLayout>
             </toolkit:Expander.Content>
           </toolkit:Expander>
