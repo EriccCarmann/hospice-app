@@ -1,4 +1,4 @@
-namespace LoginTestAppMaui.Models;
+namespace HospiceApp.Models;
 
 public class Illness
 {

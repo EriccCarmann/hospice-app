@@ -1,22 +1,30 @@
 using System.Diagnostics;
 using System.Text.Json;
-using LoginTestAppMaui.Models;
-using LoginTestAppMaui.Services.Abstract;
+using HospiceApp.Models;
+using HospiceApp.Services.Abstract;
 
-namespace LoginTestAppMaui.Services.Implementation;
+namespace HospiceApp.Services.Implementation;
 
 public class StrapiService : IStrapiService
 {
-    private readonly HttpClient _httpClient;
+    private readonly HttpClient _mainHttpClient;
+    private readonly HttpClient _reservedHttpClient;
     private readonly JsonSerializerOptions _serializerOptions;
-    private const string BaseUrl = "https://mighty-whisper-8b282eed39.strapiapp.com";
+    private const string MainUrl = "https://mighty-whisper-8b282eed39.strapiapp.com";
+    private const string ReservedUrl = "http://10.201.32.78:1337";
     
     public StrapiService()
     {
-        _httpClient = new HttpClient()
+        _mainHttpClient = new HttpClient()
         {
-            BaseAddress = new Uri(BaseUrl)
+            BaseAddress = new Uri(MainUrl)
         };
+
+        _reservedHttpClient = new HttpClient()
+        {
+            BaseAddress = new Uri(ReservedUrl)
+        };
+        
         _serializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -31,8 +39,7 @@ public class StrapiService : IStrapiService
 
         try
         {
-            var response = await _httpClient.GetAsync("/api/illnesses");
-            response.EnsureSuccessStatusCode();
+            var response = await TryGetResponse("/api/diseases");
 
             using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
             var dataArray = jsonDoc.RootElement
@@ -55,7 +62,7 @@ public class StrapiService : IStrapiService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error loading illnesses: {ex}");
+            Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
         return illnesses;
@@ -68,8 +75,7 @@ public class StrapiService : IStrapiService
         try
         {
             var encoded = Uri.EscapeDataString(name);
-            var response = await _httpClient.GetAsync($"/api/illnesses?filters[Name][$eq]={encoded}");
-            response.EnsureSuccessStatusCode();
+            var response = await TryGetResponse($"/api/diseases?filters[Name][$eq]={encoded}");
 
             using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
             var dataObject = jsonDoc.RootElement
@@ -88,7 +94,7 @@ public class StrapiService : IStrapiService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error loading illnesses: {ex}");
+            Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
         return illness;
@@ -101,8 +107,8 @@ public class StrapiService : IStrapiService
         try
         {
             var encoded = Uri.EscapeDataString(substring);
-            var response = await _httpClient.GetAsync($"/api/illnesses?filters[Name][$containsi]={encoded}");
-            response.EnsureSuccessStatusCode();
+
+            var response = await TryGetResponse($"/api/diseases?filters[Name][$containsi]={encoded}");
 
             using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
             var dataObject = jsonDoc.RootElement
@@ -124,7 +130,7 @@ public class StrapiService : IStrapiService
         
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error loading illnesses: {ex}");
+            Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
         return illnesses;
@@ -143,5 +149,17 @@ public class StrapiService : IStrapiService
     public Task DeleteIllnessAsync(Illness illness)
     {
         throw new NotImplementedException();
+    }
+
+    private async Task<HttpResponseMessage> TryGetResponse(string path)
+    {
+        var response = await _mainHttpClient.GetAsync(path);
+
+        if (!response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+        {
+            response = await _reservedHttpClient.GetAsync(path);
+        }
+
+        return response;
     }
 }

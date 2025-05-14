@@ -44,6 +44,14 @@
 		<data>
 		ZavBRK6gzdv0u+OYAINxznb1lzE=
 		</data>
+		<key>Resources/list.png</key>
+		<data>
+		tebfeHxrmm6fh743HXHaPIPC7Ag=
+		</data>
+		<key>Resources/search.png</key>
+		<data>
+		xqiISNpvymbDodXs3WqyXv3GE9c=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -72,14 +80,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UU/2u8+RlhXW5kdU/qHknj0bZYjot1iyewpF8yh4DsE=
+			kXfb7VONP89rywcYQAdgjOZbgYLBd9oxYrFGUJGc2eY=
 			</data>
 		</dict>
 		<key>MonoBundle/HospiceApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jdeXyqxjYEsD1w7J2+oyIIzoeBInd++u+Nr+UA/IUBk=
+			aLo5mUiY0CeAF72eKSqiyBQ1zjCqJRZSGKQHiRwD7QE=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -1711,6 +1719,20 @@
 			<key>hash2</key>
 			<data>
 			ftZ//NybejiBqaUusNcnEH1SLkssxSWkkQlItM9ZxkA=
+			</data>
+		</dict>
+		<key>Resources/list.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			un66kJruQd1U3CSK7qgw83folehXZQT7akAfP6Flk4s=
+			</data>
+		</dict>
+		<key>Resources/search.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e5JiBXOHyNIuqiAk9e4uzoMYakLAvRo8BhobxmvybgM=
 			</data>
 		</dict>
 	</dict>

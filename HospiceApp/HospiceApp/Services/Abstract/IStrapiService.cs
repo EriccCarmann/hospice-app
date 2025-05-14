@@ -1,6 +1,6 @@
-using LoginTestAppMaui.Models;
+using HospiceApp.Models;
 
-namespace LoginTestAppMaui.Services.Abstract;
+namespace HospiceApp.Services.Abstract;
 
 public interface IStrapiService
 {

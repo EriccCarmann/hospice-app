@@ -1058,3 +1058,5 @@
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-android/android/assets/armeabi-v7a/System.Private.CoreLib.dll
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-android/android/assets/x86/System.Private.CoreLib.dll
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-android/android/assets/x86_64/System.Private.CoreLib.dll
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-android/resizetizer/r/drawable/list.png
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-android/resizetizer/r/drawable/search.png

@@ -45,8 +45,20 @@ build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Resources.Style
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
 
+[/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/Views/AllDiseasesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Views.AllDiseasesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AllDiseasesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AllDiseasesPage.xaml
+
 [/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/Views/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Views.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/MainPage.xaml
+
+[/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/Views/SearchDiseasesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Views.SearchDiseasesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SearchDiseasesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SearchDiseasesPage.xaml
