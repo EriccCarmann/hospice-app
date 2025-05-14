@@ -12,6 +12,8 @@
       Padding="30,0"  
       Spacing="25">
 
+    <Label
+      Text="{Binding IllnessByName}"/>
     <!-- CollectionView bound to your ObservableCollection<Illness> in the VM -->
     <CollectionView  
         ItemsSource="{Binding Illnesses}"  
