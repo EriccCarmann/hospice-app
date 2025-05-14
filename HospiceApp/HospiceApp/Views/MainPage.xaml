@@ -5,10 +5,10 @@
     xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
     x:DataType="viewmodel:MainViewModel"  
     x:Class="HospiceApp.Views.MainPage">
-  <VerticalStackLayout  
+  <VerticalStackLayout  Margin="0,400,0,0"
       Padding="30,0"  
       Spacing="25">
-      <Grid BackgroundColor="Linen">
+      <Grid>
           <Grid.RowDefinitions>
               <RowDefinition Height="*" />
               <RowDefinition Height="*" />

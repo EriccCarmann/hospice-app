@@ -7,7 +7,7 @@ namespace HospiceApp.ViewModels;
 
 public partial class AllDiseasesViewModel : ObservableObject
 {
-    public ObservableCollection<Disease> Illnesses { get; } = new ObservableCollection<Disease>();
+    public ObservableCollection<Disease> Diseases { get; } = new ObservableCollection<Disease>();
     
     private readonly IStrapiService _strapiService;
     
@@ -22,7 +22,7 @@ public partial class AllDiseasesViewModel : ObservableObject
         var diseasesList = await _strapiService.GetDiseasesAsync();
         foreach (var disease in diseasesList)
         {
-            Illnesses.Add(disease);
+            Diseases.Add(disease);
         }
     }
 }

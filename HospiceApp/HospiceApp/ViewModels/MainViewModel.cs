@@ -19,12 +19,16 @@ public partial class MainViewModel : ObservableObject
     {
         _navigationService = navigationService;
         AllDiseases = new RelayCommand(GoToAllDiseases);
-        // GetIllnessByName("stage");
+        SearchDisease = new RelayCommand(GoToSearchDiseases);
     }
 
     private void GoToAllDiseases()
     {
         _navigationService.GoToAllDiseases();
     }
-
+    
+    private void GoToSearchDiseases()
+    {
+        _navigationService.GoToSearchDiseases();
+    }
 }

@@ -9,8 +9,8 @@
              x:Class="HospiceApp.Views.AllDiseasesPage">
     <ContentPage.Content>
          <CollectionView  
-        ItemsSource="{Binding Illnesses}"  
-        EmptyView="No illnesses to display."  
+        ItemsSource="{Binding Diseases}"  
+        EmptyView="No diseases to display."  
         SelectionMode="None">
       <CollectionView.ItemTemplate>
         <DataTemplate x:DataType="models:Disease">
