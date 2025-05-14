@@ -13,7 +13,7 @@
         EmptyView="No illnesses to display."  
         SelectionMode="None">
       <CollectionView.ItemTemplate>
-        <DataTemplate x:DataType="models:Illness">
+        <DataTemplate x:DataType="models:Disease">
           <toolkit:Expander>
             <toolkit:Expander.Header>
               <Grid Padding="10" ColumnDefinitions="*,Auto">

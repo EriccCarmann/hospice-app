@@ -33,9 +33,9 @@ public class StrapiService : IStrapiService
         
     }
 
-    public async Task<List<Illness>> GetIllnessesAsync()
+    public async Task<List<Disease>> GetDiseasesAsync()
     {
-        var illnesses = new List<Illness>();
+        var diseases = new List<Disease>();
 
         try
         {
@@ -48,7 +48,7 @@ public class StrapiService : IStrapiService
 
             foreach (var item in dataArray)
             {
-                var illness = new Illness
+                var illness = new Disease
                 {
                     Id                  = item.GetProperty("id").GetInt32(),
                     Name                = item.GetProperty("Name").GetString() ?? string.Empty,
@@ -57,7 +57,7 @@ public class StrapiService : IStrapiService
                     IsHospiceEligible   = item.GetProperty("IsHospiceEligible").GetBoolean()
                 };
 
-                illnesses.Add(illness);
+                diseases.Add(illness);
             }
         }
         catch (Exception ex)
@@ -65,12 +65,12 @@ public class StrapiService : IStrapiService
             Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
-        return illnesses;
+        return diseases;
     }
 
-    public async Task<Illness> GetIllnessByFullNameAsync(string name)
+    public async Task<Disease> GetDiseaseByFullNameAsync(string name)
     {
-        var illness = new Illness();
+        var disease = new Disease();
 
         try
         {
@@ -83,7 +83,7 @@ public class StrapiService : IStrapiService
                 .EnumerateArray()
                 .First();;
 
-            illness = new Illness
+            disease = new Disease
             {
                 Id                  = dataObject.GetProperty("id").GetInt32(),
                 Name                = dataObject.GetProperty("Name").GetString() ?? string.Empty,
@@ -97,12 +97,12 @@ public class StrapiService : IStrapiService
             Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
-        return illness;
+        return disease;
     }
     
-    public async Task<List<Illness>> GetIllnessesByNameAsync(string substring)
+    public async Task<List<Disease>> GetDiseasesByNameAsync(string substring)
     {
-        var illnesses = new List<Illness>();
+        var diseases = new List<Disease>();
 
         try
         {
@@ -117,7 +117,7 @@ public class StrapiService : IStrapiService
 
             foreach (var item in dataObject)
             {
-                illnesses.Add(new Illness
+                diseases.Add(new Disease
                 {
                     Id                  = item.GetProperty("id").GetInt32(),
                     Name                = item.GetProperty("Name").GetString() ?? string.Empty,
@@ -133,20 +133,20 @@ public class StrapiService : IStrapiService
             Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
-        return illnesses;
+        return diseases;
     }
 
-    public Task<Illness> AddIllnessAsync(Illness illness)
+    public Task<Disease> AddDiseaseAsync(Disease disease)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Illness> UpdateIllnessAsync(Illness illness)
+    public Task<Disease> UpdateDiseaseAsync(Disease disease)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteIllnessAsync(Illness illness)
+    public Task DeleteDiseaseAsync(Disease disease)
     {
         throw new NotImplementedException();
     }

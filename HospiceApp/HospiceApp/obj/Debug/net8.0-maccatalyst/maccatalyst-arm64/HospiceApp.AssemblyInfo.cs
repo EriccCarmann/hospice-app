@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HospiceApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+6b365f9743b2b6054acdf6382e70c0a177cfec7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0d1c0dd9b3bb44624382ecc8546217119f75dbda")]
 [assembly: System.Reflection.AssemblyProductAttribute("HospiceApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HospiceApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

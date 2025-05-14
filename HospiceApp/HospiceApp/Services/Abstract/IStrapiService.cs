@@ -4,9 +4,9 @@ namespace HospiceApp.Services.Abstract;
 
 public interface IStrapiService
 {
-    public Task<List<Illness>> GetIllnessesAsync();
-    public Task<List<Illness>> GetIllnessesByNameAsync(string substring);
-    public Task<Illness> AddIllnessAsync(Illness illness);
-    public Task<Illness> UpdateIllnessAsync(Illness illness);
-    public Task DeleteIllnessAsync(Illness illness);
+    public Task<List<Disease>> GetDiseasesAsync();
+    public Task<List<Disease>> GetDiseasesByNameAsync(string substring);
+    public Task<Disease> AddDiseaseAsync(Disease disease);
+    public Task<Disease> UpdateDiseaseAsync(Disease disease);
+    public Task DeleteDiseaseAsync(Disease disease);
 }

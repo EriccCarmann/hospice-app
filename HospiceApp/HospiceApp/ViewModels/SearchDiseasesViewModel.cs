@@ -13,9 +13,9 @@ public partial class SearchDiseasesViewModel : ObservableObject
         _strapiService = strapiService;
     }
     
-    private async Task<List<Illness>> SearchDiseases(string name)
+    private async Task<List<Disease>> SearchDiseases(string name)
     {
-        var result = await _strapiService.GetIllnessesByNameAsync(name);
+        var result = await _strapiService.GetDiseasesByNameAsync(name);
         foreach (var illness in result)
         {
             
