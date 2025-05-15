@@ -81,7 +81,7 @@ public class StrapiService : IStrapiService
             var dataObject = jsonDoc.RootElement
                 .GetProperty("data")
                 .EnumerateArray()
-                .First();;
+                .First();
 
             disease = new Disease
             {
@@ -136,7 +136,7 @@ public class StrapiService : IStrapiService
 
     public async Task<Disease> AddDiseaseAsync(Disease disease)
     {
-        var diseaseResult = new Disease();
+        var newDisease = new Disease();
         try
         {
             var json = JsonSerializer.Serialize(new
@@ -150,7 +150,7 @@ public class StrapiService : IStrapiService
             await _mainHttpClient.PostAsync(path, content);
             await _reservedHttpClient.PostAsync(path, content);
 
-            diseaseResult = await GetDiseaseByFullNameAsync("Test");
+            newDisease = await GetDiseaseByFullNameAsync("Test");
         }
         
         catch (Exception ex)
@@ -158,7 +158,7 @@ public class StrapiService : IStrapiService
             Debug.WriteLine($"Error loading diseases: {ex}");
         }
 
-        return diseaseResult;
+        return newDisease;
     }
 
     public Task<Disease> UpdateDiseaseAsync(Disease disease)
@@ -166,9 +166,30 @@ public class StrapiService : IStrapiService
         throw new NotImplementedException();
     }
 
-    public Task DeleteDiseaseAsync(Disease disease)
+    public async Task DeleteDiseaseAsync(string name)
     {
-        throw new NotImplementedException();
+        var result = new HttpResponseMessage();
+
+        try
+        {
+            var encoded = Uri.EscapeDataString(name);
+            var response = await TryGetResponse($"/api/diseases?filters[Name][$eq]={encoded}");
+
+            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+            var dataObject = jsonDoc.RootElement
+                .GetProperty("data")
+                .EnumerateArray()
+                .First();
+            
+            var url = $"api/diseases/{dataObject.GetProperty("documentId").GetString() ?? string.Empty}";
+            
+            result = await _mainHttpClient.DeleteAsync(url);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(result.Content.ReadAsStringAsync() + " " + e);
+            throw;
+        }
     }
 
     private async Task<HttpResponseMessage> TryGetResponse(string path)

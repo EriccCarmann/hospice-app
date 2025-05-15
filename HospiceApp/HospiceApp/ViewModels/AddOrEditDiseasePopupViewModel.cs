@@ -11,14 +11,23 @@ public partial class AddOrEditDiseasePopupViewModel : ObservableObject
     [ObservableProperty] private string _iCDCode;
     [ObservableProperty] private string _description;
     [ObservableProperty] private bool _isHospiceEligible;
-    public RelayCommand CancelCommand { get; set; }
-
+    
+    public Action SaveAction { get; set; }    
+    public IRelayCommand CancelCommand { get; set; }
+    public IRelayCommand SaveCommand { get; }
     public AddOrEditDiseasePopupViewModel(IPopupService popupService)
     {
         _popupService = popupService;
         CancelCommand = new RelayCommand(Cancel);
+        SaveCommand = new RelayCommand(Save);
     }
 
+    private void Save()
+    {
+        SaveAction?.Invoke();
+        _popupService.ClosePopup();
+    }
+    
     private void Cancel()
     {
         _popupService.ClosePopup();

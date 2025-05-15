@@ -17,30 +17,47 @@ public partial class AllDiseasesViewModel : ObservableObject
     
     public IRelayCommand<Disease> EditCommand { get; set; } 
     public IAsyncRelayCommand AddDiseaseCommand { get; set; } 
+    public IAsyncRelayCommand<Disease> DeleteCommand { get; set; } 
     public AllDiseasesViewModel(IStrapiService strapiService, IPopupService popupService)
     {
         _strapiService = strapiService;
         _popupService = popupService;
         
         GetIllnesses();
-        EditCommand = new RelayCommand<Disease>(ShowDiseasePopup);
+        
+        EditCommand = new RelayCommand<Disease>(EditDisease);
         AddDiseaseCommand = new AsyncRelayCommand(AddDisease);
+        DeleteCommand = new AsyncRelayCommand<Disease>(DeleteDisease);
     }
 
     private async Task AddDisease()
     {
-        await _strapiService.AddDiseaseAsync(new Disease()
+        var newDisease = new Disease();
+        
+        _popupService.ShowPopup<AddOrEditDiseasePopupViewModel>(vm =>
         {
-            Name = "Test",
-            Description = "Test",
-            ICDCode = "Test",
-            IsHospiceEligible = true
+            vm.SaveAction = async () =>
+            {
+                newDisease = await _strapiService.AddDiseaseAsync(new Disease()
+                {
+                    Name = vm.Name ?? string.Empty,
+                    Description = vm.Description ?? string.Empty,
+                    ICDCode = vm.ICDCode ?? string.Empty,
+                    IsHospiceEligible = vm.IsHospiceEligible
+                });
+            };
         });
-        Diseases.Clear();
-        GetIllnesses();
+        
+        Diseases.Add(newDisease);
+    }
+
+    private async Task DeleteDisease(Disease disease)
+    {
+        await _strapiService.DeleteDiseaseAsync(disease.Name);
+        Diseases.Remove(disease);
     }
     
-    private void ShowDiseasePopup(Disease disease)
+    private void EditDisease(Disease disease)
     {
         _popupService.ShowPopup<AddOrEditDiseasePopupViewModel>(vm =>
         {

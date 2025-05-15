@@ -62,7 +62,9 @@
                        Source="edit.png"
                        HeightRequest="30"
                        WidthRequest="30"/>
-          <ImageButton Source="delete.png"
+          <ImageButton Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"
+                       CommandParameter="{Binding .}"
+                       Source="delete.png"
                        HeightRequest="30"
                        WidthRequest="30"/>
         </HorizontalStackLayout>
