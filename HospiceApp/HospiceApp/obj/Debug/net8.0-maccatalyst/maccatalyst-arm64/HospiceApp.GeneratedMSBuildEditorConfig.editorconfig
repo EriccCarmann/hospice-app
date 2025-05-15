@@ -45,6 +45,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Resources.Style
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
 
+[/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/Views/AddOrEditDiseasePopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Views.AddOrEditDiseasePopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddOrEditDiseasePopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddOrEditDiseasePopup.xaml
+
 [/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/Views/AllDiseasesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = HospiceApp.Views.AllDiseasesPage.xaml

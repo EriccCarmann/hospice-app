@@ -27,6 +27,8 @@ public static class MauiProgram
         builder.Services.AddTransientWithShellRoute<MainPage, MainViewModel>(nameof(MainPage));
         builder.Services.AddTransientWithShellRoute<AllDiseasesPage, AllDiseasesViewModel>(nameof(AllDiseasesPage));
         builder.Services.AddTransientWithShellRoute<SearchDiseasesPage, SearchDiseasesViewModel>(nameof(SearchDiseasesPage));
+
+        builder.Services.AddTransientPopup<AddOrEditDiseasePopup, AddOrEditDiseasePopupViewModel>();
         
 #if DEBUG
         builder.Logging.AddDebug();
