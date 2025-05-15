@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using HospiceApp.Models;
 using HospiceApp.Services.Abstract;
@@ -50,7 +51,6 @@ public class StrapiService : IStrapiService
             {
                 var illness = new Disease
                 {
-                    Id                  = item.GetProperty("id").GetInt32(),
                     Name                = item.GetProperty("Name").GetString() ?? string.Empty,
                     Description         = item.GetProperty("Description").GetString() ?? string.Empty,
                     ICDCode             = item.GetProperty("ICDCode").GetString() ?? string.Empty,
@@ -85,7 +85,6 @@ public class StrapiService : IStrapiService
 
             disease = new Disease
             {
-                Id                  = dataObject.GetProperty("id").GetInt32(),
                 Name                = dataObject.GetProperty("Name").GetString() ?? string.Empty,
                 Description         = dataObject.GetProperty("Description").GetString() ?? string.Empty,
                 ICDCode             = dataObject.GetProperty("ICDCode").GetString() ?? string.Empty,
@@ -119,7 +118,6 @@ public class StrapiService : IStrapiService
             {
                 diseases.Add(new Disease
                 {
-                    Id                  = item.GetProperty("id").GetInt32(),
                     Name                = item.GetProperty("Name").GetString() ?? string.Empty,
                     Description         = item.GetProperty("Description").GetString() ?? string.Empty,
                     ICDCode             = item.GetProperty("ICDCode").GetString() ?? string.Empty,
@@ -136,9 +134,31 @@ public class StrapiService : IStrapiService
         return diseases;
     }
 
-    public Task<Disease> AddDiseaseAsync(Disease disease)
+    public async Task<Disease> AddDiseaseAsync(Disease disease)
     {
-        throw new NotImplementedException();
+        var diseaseResult = new Disease();
+        try
+        {
+            var json = JsonSerializer.Serialize(new
+            {
+                data = disease
+            });
+        
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var path = "/api/diseases";
+
+            await _mainHttpClient.PostAsync(path, content);
+            await _reservedHttpClient.PostAsync(path, content);
+
+            diseaseResult = await GetDiseaseByFullNameAsync("Test");
+        }
+        
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error loading diseases: {ex}");
+        }
+
+        return diseaseResult;
     }
 
     public Task<Disease> UpdateDiseaseAsync(Disease disease)

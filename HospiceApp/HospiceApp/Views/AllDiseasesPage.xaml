@@ -8,12 +8,14 @@
              x:DataType="viewmodel:AllDiseasesViewModel" 
              x:Class="HospiceApp.Views.AllDiseasesPage"
              x:Name="ThisPage">
-    <ContentPage.Content>
-      <CollectionView  
-    ItemsSource="{Binding Diseases}"  
-    EmptyView="No diseases to display."  
-    SelectionMode="None">
-  <CollectionView.ItemTemplate>
+  <ContentPage.Content>
+    <VerticalStackLayout>
+          <Button Text="Add disease"
+            Command="{Binding AddDiseaseCommand}"/>
+    <CollectionView ItemsSource="{Binding Diseases}"  
+                    EmptyView="No diseases to display."  
+                    SelectionMode="None">
+           <CollectionView.ItemTemplate>
     <DataTemplate>
       <VerticalStackLayout>
         <toolkit:Expander x:DataType="models:Disease">
@@ -34,7 +36,7 @@
           </toolkit:Expander.Header>
           <toolkit:Expander.Content>
             <VerticalStackLayout  
-                Padding="10"  
+                Padding="10,10,10,0"  
                 Spacing="8">
               <Label  
                   Text="{Binding Description}"  
@@ -67,7 +69,7 @@
       </VerticalStackLayout>
     </DataTemplate>
   </CollectionView.ItemTemplate>
-</CollectionView>
-
+      </CollectionView>
+    </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
