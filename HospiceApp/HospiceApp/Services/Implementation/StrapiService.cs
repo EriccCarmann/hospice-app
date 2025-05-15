@@ -149,8 +149,6 @@ public class StrapiService : IStrapiService
 
             await _mainHttpClient.PostAsync(path, content);
             await _reservedHttpClient.PostAsync(path, content);
-
-            newDisease = await GetDiseaseByFullNameAsync("Test");
         }
         
         catch (Exception ex)
@@ -161,9 +159,36 @@ public class StrapiService : IStrapiService
         return newDisease;
     }
 
-    public Task<Disease> UpdateDiseaseAsync(Disease disease)
+    public async Task UpdateDiseaseAsync(string oldName, Disease updatedDisease)
     {
-        throw new NotImplementedException();
+        var result = new HttpResponseMessage();
+
+        try
+        {
+            string json = JsonSerializer.Serialize(new
+            {
+                data = updatedDisease
+            });
+            
+            using var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var encoded = Uri.EscapeDataString(oldName);
+            var response = await TryGetResponse($"/api/diseases?filters[Name][$eq]={encoded}");
+
+            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+            var dataObject = jsonDoc.RootElement
+                .GetProperty("data")
+                .EnumerateArray()
+                .First();
+            
+            var url = $"api/diseases/{dataObject.GetProperty("documentId").GetString() ?? string.Empty}";
+
+            result = await _mainHttpClient.PutAsync(url, content);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(result.Content.ReadAsStringAsync() + " " + e);
+            throw;
+        };
     }
 
     public async Task DeleteDiseaseAsync(string name)

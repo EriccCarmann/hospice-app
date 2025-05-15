@@ -65,7 +65,20 @@ public partial class AllDiseasesViewModel : ObservableObject
             vm.ICDCode = disease.ICDCode;
             vm.Description = disease.Description;
             vm.IsHospiceEligible = disease.IsHospiceEligible;
+            vm.SaveAction = async () =>
+            {
+                await _strapiService.UpdateDiseaseAsync(disease.Name, new Disease()
+                {
+                    Name = vm.Name ?? string.Empty,
+                    Description = vm.Description ?? string.Empty,
+                    ICDCode = vm.ICDCode ?? string.Empty,
+                    IsHospiceEligible = vm.IsHospiceEligible
+                });
+            };
         });
+        
+        Diseases.Clear();
+        GetIllnesses();
     }
     
     private async Task GetIllnesses()
