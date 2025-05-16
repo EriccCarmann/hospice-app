@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
-		iEtuUGCV6JM3gxS/pO33swhmpp8=
+		K/hOMDsXcFw4MGJi96AbKbUfI74=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -88,14 +88,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZycR/IRHYxVF4K65/SDDn2Jaz4C1xhEMUnVa91DKUGc=
+			VOevuBdXtnm8+18dYu91IQukbq4ZfgU5s12PuvdX7E8=
 			</data>
 		</dict>
 		<key>MonoBundle/HospiceApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4nr0dSz11T1cfcleCbvrGvQk2CSUm9PrBLGRxaHYETM=
+			Q8qaEKxzo1PTA66+G+n3nVEJ3KMlhE+5o6O7znWmixQ=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -1390,7 +1390,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1zg8FOFbSSDjfuGhlWaBPck9F23BaEJM5K0r7Xx9fBs=
+			TgyF1Gyx8lDd8VbWQC+8VOZzM4v8JsoMjcH9+o3PrA4=
 			</data>
 		</dict>
 		<key>MonoBundle/ar/Microsoft.Maui.Controls.resources.dll</key>
@@ -1659,6 +1659,20 @@
 			JroYWayfy1SfXv0YaDjN91ijndzQnIWjps37m9TQI+A=
 			</data>
 		</dict>
+		<key>MonoBundle/zoft.MauiExtensions.Controls.AutoCompleteEntry.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6TJ1siMnZ7Xx2A8JnghlzGGTvMXUpC3ANPL7KIA1nrw=
+			</data>
+		</dict>
+		<key>MonoBundle/zoft.MauiExtensions.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IGpAvm7bAVRc7jCnsFF1brCgv5d9kYeE7QFgs3NQnpw=
+			</data>
+		</dict>
 		<key>Resources/AboutAssets.txt</key>
 		<dict>
 			<key>hash2</key>
@@ -1677,7 +1691,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tx0KXqEC+DvcCGyogQTEQWHcCWJYYqH24NtPwhpQEjo=
+			i/x+CJBLKHkO3nPxIpXSW/NIcJ9uYA3sH70YTVdtoOE=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
