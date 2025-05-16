@@ -1,46 +1,34 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using LoginTestAppMaui.Models;
-using LoginTestAppMaui.Services.Abstract;
+using HospiceApp.Models;
+using HospiceApp.Services.Abstract;
 
 namespace HospiceApp.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-    int count = 0;
-    public ObservableCollection<Illness> Illnesses { get; } = new ObservableCollection<Illness>();
+    private readonly INavigationService _navigationService;
 
-    
-    private readonly IStrapiService _strapiService;
-    
-    [ObservableProperty] private string _counter;
-    public IRelayCommand CounterCommand { get; set; }
+    [ObservableProperty] private string _illnessByName;
 
-    public MainViewModel(IStrapiService strapiService)
+    public IRelayCommand AllDiseases { get; set; }
+    public IRelayCommand SearchDisease { get; set; }
+  
+    public MainViewModel(INavigationService navigationService)
     {
-        _strapiService = strapiService;
-        CounterCommand = new RelayCommand(OnCounterCommand);
-
-        getIllnesses();
+        _navigationService = navigationService;
+        AllDiseases = new RelayCommand(GoToAllDiseases);
+        SearchDisease = new RelayCommand(GoToSearchDiseases);
     }
 
-    private async Task getIllnesses()
+    private void GoToAllDiseases()
     {
-        var illnessesList = await _strapiService.GetIllnessesAsync();
-        foreach (var illness in illnessesList)
-        {
-            Illnesses.Add(illness);
-        }
+        _navigationService.GoToAllDiseases();
     }
     
-    private void OnCounterCommand()
+    private void GoToSearchDiseases()
     {
-        count++;
-
-        if (count == 1)
-            Counter = $"Clicked {count} time";
-        else
-            Counter = $"Clicked {count} times";
+        _navigationService.GoToSearchDiseases();
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:HospiceApp.Models"
+             xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
+             x:DataType="viewmodel:AllDiseasesViewModel" 
+             x:Class="HospiceApp.Views.AllDiseasesPage"
+             x:Name="ThisPage">
+  <ContentPage.Content>
+    <VerticalStackLayout>
+          <Button Text="Add disease"
+            Command="{Binding AddDiseaseCommand}"/>
+    <CollectionView ItemsSource="{Binding Diseases}"  
+                    EmptyView="No diseases to display."  
+                    SelectionMode="None">
+           <CollectionView.ItemTemplate>
+    <DataTemplate>
+      <VerticalStackLayout>
+        <toolkit:Expander x:DataType="models:Disease">
+          <toolkit:Expander.Header>
+            <Grid Padding="10" ColumnDefinitions="*,Auto">
+              <Label  
+                  Text="{Binding Name}"  
+                  FontAttributes="Bold"  
+                  FontSize="18"  
+                  VerticalOptions="Center" />
+              <Label  
+                  Grid.Column="1"  
+                  Text="{Binding ICDCode}"  
+                  FontSize="14"  
+                  VerticalOptions="Center"
+                  TextColor="Gray"/>
+            </Grid>
+          </toolkit:Expander.Header>
+          <toolkit:Expander.Content>
+            <VerticalStackLayout  
+                Padding="10,10,10,0"  
+                Spacing="8">
+              <Label  
+                  Text="{Binding Description}"  
+                  FontSize="14"  
+                  LineBreakMode="WordWrap" />
+              <Grid ColumnDefinitions="Auto,*,Auto" Padding="10">
+                <HorizontalStackLayout Grid.Column="0" Spacing="10" VerticalOptions="Center">
+                  <Label Text="Hospice eligible:"
+                         FontAttributes="Italic"
+                         VerticalOptions="Center" />
+                  <Switch IsToggled="{Binding IsHospiceEligible}"
+                          IsEnabled="False"
+                          VerticalOptions="Center" />
+                </HorizontalStackLayout>
+              </Grid>
+            </VerticalStackLayout>
+          </toolkit:Expander.Content>
+        </toolkit:Expander>
+        <HorizontalStackLayout Spacing="10"
+                               HorizontalOptions="End">
+          <ImageButton Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.EditCommand}"
+                       CommandParameter="{Binding .}"
+                       Source="edit.png"
+                       HeightRequest="30"
+                       WidthRequest="30"/>
+          <ImageButton Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"
+                       CommandParameter="{Binding .}"
+                       Source="delete.png"
+                       HeightRequest="30"
+                       WidthRequest="30"/>
+        </HorizontalStackLayout>
+      </VerticalStackLayout>
+    </DataTemplate>
+  </CollectionView.ItemTemplate>
+      </CollectionView>
+    </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

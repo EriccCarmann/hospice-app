@@ -303,6 +303,10 @@
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/HospiceApp.pdb
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/HospiceApp.genruntimeconfig.cache
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/ref/HospiceApp.dll
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/r/Resources/list.png
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/r/Resources/search.png
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/r/Resources/edit.png
+/Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/r/Resources/delete.png
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/CommunityToolkit.Maui.Core.stamp
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/CommunityToolkit.Maui.stamp
 /Users/admin/Documents/GitHub/hospice-app/HospiceApp/HospiceApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/CommunityToolkit.Mvvm.stamp

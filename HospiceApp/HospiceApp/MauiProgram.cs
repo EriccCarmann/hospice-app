@@ -2,8 +2,8 @@
 using CommunityToolkit.Maui;
 using HospiceApp.ViewModels;
 using HospiceApp.Views;
-using LoginTestAppMaui.Services.Abstract;
-using LoginTestAppMaui.Services.Implementation;
+using HospiceApp.Services.Abstract;
+using HospiceApp.Services.Implementation;
 
 namespace HospiceApp;
 
@@ -22,8 +22,14 @@ public static class MauiProgram
             });
         
         builder.Services.AddSingleton<IStrapiService, StrapiService>();
+        builder.Services.AddSingleton<INavigationService, NavigationService>();
+        
+        builder.Services.AddTransientWithShellRoute<MainPage, MainViewModel>(nameof(MainPage));
+        builder.Services.AddTransientWithShellRoute<AllDiseasesPage, AllDiseasesViewModel>(nameof(AllDiseasesPage));
+        builder.Services.AddTransientWithShellRoute<SearchDiseasesPage, SearchDiseasesViewModel>(nameof(SearchDiseasesPage));
 
-        builder.Services.AddTransient<MainPage, MainViewModel>();
+        builder.Services.AddTransientPopup<AddOrEditDiseasePopup, AddOrEditDiseasePopupViewModel>();
+        
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

@@ -2,72 +2,45 @@
 <ContentPage  
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"  
     xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
-    xmlns:models1="clr-namespace:LoginTestAppMaui.Models"
     x:DataType="viewmodel:MainViewModel"  
     x:Class="HospiceApp.Views.MainPage">
-
-  <VerticalStackLayout  
+  <VerticalStackLayout  Margin="0,400,0,0"
       Padding="30,0"  
       Spacing="25">
+      <Grid>
+          <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*" />
+              <RowDefinition Height="100" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
 
-    <!-- CollectionView bound to your ObservableCollection<Illness> in the VM -->
-    <CollectionView  
-        ItemsSource="{Binding Illnesses}"  
-        EmptyView="No illnesses to display."  
-        SelectionMode="None">
+          <VerticalStackLayout Grid.Row="0" Grid.Column="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+              <ImageButton Source="list.png"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           Command="{Binding AllDiseases}" />
+              <Label Text="All diseases" 
+                     HorizontalOptions="Center"/>
+          </VerticalStackLayout>
 
-      <CollectionView.ItemTemplate>
-        <DataTemplate x:DataType="models1:Illness">
-          <!-- Use an Expander so you can toggle details -->
-          <toolkit:Expander>
-            <!-- Header shows Name and ICDCode -->
-            <toolkit:Expander.Header>
-              <Grid Padding="10" ColumnDefinitions="*,Auto">
-                <Label  
-                    Text="{Binding Name}"  
-                    FontAttributes="Bold"  
-                    FontSize="18"  
-                    VerticalOptions="Center" />
-                <Label  
-                    Grid.Column="1"  
-                    Text="{Binding ICDCode}"  
-                    FontSize="14"  
-                    VerticalOptions="Center"
-                    TextColor="Gray"/>
-              </Grid>
-            </toolkit:Expander.Header>
+          <VerticalStackLayout Grid.Row="0" Grid.Column="1"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+              <ImageButton Source="search.png"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           Command="{Binding SearchDisease}" />
+              <Label Text="Search diseases" 
+                     HorizontalOptions="Center"/>
+          </VerticalStackLayout>
 
-            <!-- Content shows Description and eligibility -->
-            <toolkit:Expander.Content>
-              <VerticalStackLayout  
-                  Padding="10"  
-                  Spacing="8">
-
-                <Label  
-                    Text="{Binding Description}"  
-                    FontSize="14"  
-                    LineBreakMode="WordWrap" />
-
-                <HorizontalStackLayout  
-                    Spacing="5"  
-                    VerticalOptions="Center">
-                  <Label  
-                      Text="Hospice eligible:"  
-                      FontAttributes="Italic"  
-                      VerticalOptions="Center"/>
-                  <Switch  
-                      IsToggled="{Binding IsHospiceEligible}"  
-                      IsEnabled="False"  
-                      VerticalOptions="Center" />
-                </HorizontalStackLayout>
-
-              </VerticalStackLayout>
-            </toolkit:Expander.Content>
-          </toolkit:Expander>
-        </DataTemplate>
-      </CollectionView.ItemTemplate>
-    </CollectionView>
+      </Grid>
   </VerticalStackLayout>
 </ContentPage>
