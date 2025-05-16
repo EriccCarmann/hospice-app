@@ -4,6 +4,7 @@ using HospiceApp.ViewModels;
 using HospiceApp.Views;
 using HospiceApp.Services.Abstract;
 using HospiceApp.Services.Implementation;
+using zoft.MauiExtensions.Controls;
 
 namespace HospiceApp;
 
@@ -15,6 +16,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .UseZoftAutoCompleteEntry()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
