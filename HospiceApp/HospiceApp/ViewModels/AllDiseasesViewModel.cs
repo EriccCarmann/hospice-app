@@ -38,17 +38,19 @@ public partial class AllDiseasesViewModel : ObservableObject
         {
             vm.SaveAction = async () =>
             {
-                newDisease = await _strapiService.AddDiseaseAsync(new Disease()
+                newDisease = new Disease()
                 {
                     Name = vm.Name ?? string.Empty,
                     Description = vm.Description ?? string.Empty,
                     ICDCode = vm.ICDCode ?? string.Empty,
                     IsHospiceEligible = vm.IsHospiceEligible
-                });
+                };
+                
+                await _strapiService.AddDiseaseAsync(newDisease);
+                
+                Diseases.Add(newDisease);
             };
         });
-        
-        Diseases.Add(newDisease);
     }
 
     private async Task DeleteDisease(Disease disease)
@@ -67,18 +69,22 @@ public partial class AllDiseasesViewModel : ObservableObject
             vm.IsHospiceEligible = disease.IsHospiceEligible;
             vm.SaveAction = async () =>
             {
-                await _strapiService.UpdateDiseaseAsync(disease.Name, new Disease()
+                var newDisease = new Disease()
                 {
                     Name = vm.Name ?? string.Empty,
                     Description = vm.Description ?? string.Empty,
                     ICDCode = vm.ICDCode ?? string.Empty,
                     IsHospiceEligible = vm.IsHospiceEligible
-                });
+                };
+                
+                await _strapiService.UpdateDiseaseAsync(disease.Name, newDisease);
+                
+                Diseases.Remove(disease);
+                Diseases.Add(newDisease);
             };
         });
         
-        Diseases.Clear();
-        GetIllnesses();
+        
     }
     
     private async Task GetIllnesses()
