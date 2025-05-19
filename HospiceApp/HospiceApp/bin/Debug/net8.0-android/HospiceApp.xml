@@ -25,7 +25,17 @@
         <member name="P:HospiceApp.ViewModels.MainViewModel.IllnessByName">
             <inheritdoc cref="F:HospiceApp.ViewModels.MainViewModel._illnessByName"/>
         </member>
+        <member name="T:HospiceApp.ViewModels.ListItem">
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.ListItem.Group">
+            <inheritdoc cref="F:HospiceApp.ViewModels.ListItem._group"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.ListItem.Country">
+            <inheritdoc cref="F:HospiceApp.ViewModels.ListItem._country"/>
+        </member>
         <member name="T:HospiceApp.ViewModels.SearchDiseasesViewModel">
+            <inheritdoc/>
             <inheritdoc/>
         </member>
         <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.FilteredList">
@@ -37,8 +47,11 @@
         <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.CursorPosition">
             <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._cursorPosition"/>
         </member>
-        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.Name">
-            <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._name"/>
+        <member name="F:HospiceApp.ViewModels.SearchDiseasesViewModel.textChangedCommand">
+            <summary>The backing field for <see cref="P:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChangedCommand"/>.</summary>
+        </member>
+        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChanged(System.String)"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
             <summary>
@@ -181,6 +194,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Group">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Group" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Country">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Country" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FilteredList">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FilteredList" generated properties.</summary>
         </member>
@@ -210,6 +229,12 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Group">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Group" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Country">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Country" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FilteredList">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FilteredList" generated properties.</summary>
