@@ -15,15 +15,18 @@
                 <!--        Text="{Binding Name}" -->
                 <!--        Placeholder="Enter name" /> -->
                 
-                <controls:AutoCompleteEntry Placeholder="Search for a country or group"
-                                            ItemsSource="{Binding FilteredList}"
-                                            TextMemberPath="Country"
-                                            DisplayMemberPath="Country"
-                                            TextChangedCommand="{Binding TextChangedCommand}"
-                                            CursorPosition="{Binding CursorPosition, Mode=TwoWay}"
-                                            SelectedSuggestion="{Binding SelectedItem}"
-                                            ClearButtonVisibility="Never"
-                                            HeightRequest="50"/>
+                <controls:AutoCompleteEntry 
+                    Grid.Column="0"
+                    Placeholder="Search"
+                    Text="{Binding Name, Mode=TwoWay}" 
+                    ItemsSource="{Binding FilteredList}"
+                    TextMemberPath="Name"
+                    DisplayMemberPath="Name"
+                    TextChangedCommand="{Binding TextChangedCommand}"
+                    CursorPosition="{Binding CursorPosition, Mode=TwoWay}"
+                    SelectedSuggestion="{Binding SelectedItem}"
+                    ClearButtonVisibility="Never"
+                    HeightRequest="50"/>
                 
                 
                 <!-- <controls:AutoCompleteEntry -->
