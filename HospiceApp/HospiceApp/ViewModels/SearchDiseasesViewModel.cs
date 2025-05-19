@@ -15,54 +15,65 @@ public partial class DiseaseName : ObservableObject
 
 public partial class SearchDiseasesViewModel : ObservableObject
 {
-    public readonly List<DiseaseName> DiseaseNames  = new List<DiseaseName>();
+    public readonly List<DiseaseName> DiseaseNames = new();
     
     [ObservableProperty]
-    private ObservableCollection<DiseaseName> _filteredList;
+    private ObservableCollection<DiseaseName> _filteredList = new();
 
     [ObservableProperty]
     private DiseaseName _selectedItem;
     
+    [ObservableProperty] private string _name;
     
-    
-    
-    
-    
-
     [ObservableProperty]
     public int _cursorPosition;
-    
-
     
     private readonly IStrapiService _strapiService;
     
      public ObservableCollection<Disease> Diseases { get; } = new ();
-    
-    [ObservableProperty] private string _name;
+     
      public IAsyncRelayCommand SearchCommand { get; }
     
     public SearchDiseasesViewModel(IStrapiService strapiService)
     {
         _strapiService = strapiService;
-
-        GetNames();
         
         SearchCommand = new AsyncRelayCommand(SearchDiseases);
-        //TextChangedCommand = new AsyncRelayCommand<string>(OnTextChangedAsync);
     }
     
     [RelayCommand]
-    private void TextChanged(string text)
+    private async Task TextChanged(string text)
     {
-        //SearchDiseasesAuto();
-        FilterList(text);
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            FilteredList.Clear();
+            return;
+        }
+
+        await FilterList(text);
     }
-    private void FilterList(string filter)
+    
+    private async Task FilterList(string filter)
     {
+        await GetNames(filter);
+        
         SelectedItem = null;
         FilteredList.Clear();
+        DiseaseNames.Clear();
+    
+        var diseases = await getDiseases(filter);
 
-        FilteredList.AddRange(DiseaseNames.Where(t => t.Name.Contains(filter, StringComparison.CurrentCultureIgnoreCase)));
+        foreach (var disease in diseases)
+        {
+            DiseaseNames.Add(new DiseaseName { Name = disease.Name });
+        }
+
+        var matches = DiseaseNames
+            .Where(t => !string.IsNullOrWhiteSpace(t.Name) &&
+                        t.Name.Contains(filter, StringComparison.CurrentCultureIgnoreCase));
+
+        foreach (var match in matches)
+            FilteredList.Add(match);
     }
     
     private async Task SearchDiseases()
@@ -77,25 +88,21 @@ public partial class SearchDiseasesViewModel : ObservableObject
         }
     }
     
-    private async Task SearchDiseasesAuto()
+    private async Task<List<Disease>> getDiseases(string filter)
     {
-        FilteredList.Clear();
-    
-        var diseases = await _strapiService.GetDiseasesByNameAsync(Name);
-        
-        foreach (var disease in diseases)
-        {
-            DiseaseNames.Add(new DiseaseName{Name = disease.Name});
-        }
+        return await _strapiService.GetDiseasesByNameAsync(filter);
     }
-    
-    private async Task GetNames()
+
+    private async Task GetNames(string filter)
     {
-        var diseases = await _strapiService.GetDiseasesAsync();
+        var diseases = await _strapiService.GetDiseasesByNameAsync(filter);
         
         foreach (var disease in diseases)
         {
-            DiseaseNames.Add(new DiseaseName{Name = disease.Name});
+            if (!DiseaseNames.Any(d => d.Name == disease.Name))
+            {
+                DiseaseNames.Add(new DiseaseName { Name = disease.Name });
+            }
         }
         
         FilteredList = new(DiseaseNames);

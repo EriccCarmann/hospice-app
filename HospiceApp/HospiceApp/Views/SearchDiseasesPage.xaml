@@ -24,7 +24,7 @@
                     DisplayMemberPath="Name"
                     TextChangedCommand="{Binding TextChangedCommand}"
                     CursorPosition="{Binding CursorPosition, Mode=TwoWay}"
-                    SelectedSuggestion="{Binding SelectedItem}"
+                    SelectedSuggestion="{Binding SelectedItem, Mode=TwoWay}"
                     ClearButtonVisibility="Never"
                     HeightRequest="50"/>
                 
