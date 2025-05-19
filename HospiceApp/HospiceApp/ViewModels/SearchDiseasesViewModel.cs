@@ -54,6 +54,7 @@ public partial class SearchDiseasesViewModel : ObservableObject
     [RelayCommand]
     private void TextChanged(string text)
     {
+        //SearchDiseasesAuto();
         FilterList(text);
     }
     private void FilterList(string filter)
@@ -73,6 +74,18 @@ public partial class SearchDiseasesViewModel : ObservableObject
         foreach (var disease in diseases)
         {
             Diseases.Add(disease);
+        }
+    }
+    
+    private async Task SearchDiseasesAuto()
+    {
+        FilteredList.Clear();
+    
+        var diseases = await _strapiService.GetDiseasesByNameAsync(Name);
+        
+        foreach (var disease in diseases)
+        {
+            DiseaseNames.Add(new DiseaseName{Name = disease.Name});
         }
     }
     
