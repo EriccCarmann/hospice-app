@@ -23,7 +23,7 @@ public partial class AllDiseasesViewModel : ObservableObject
         _strapiService = strapiService;
         _popupService = popupService;
         
-        GetIllnesses();
+        GetDiseases();
         
         EditCommand = new RelayCommand<Disease>(EditDisease);
         AddDiseaseCommand = new AsyncRelayCommand(AddDisease);
@@ -87,7 +87,7 @@ public partial class AllDiseasesViewModel : ObservableObject
         
     }
     
-    private async Task GetIllnesses()
+    private async Task GetDiseases()
     {
         var diseasesList = await _strapiService.GetDiseasesAsync();
         foreach (var disease in diseasesList)

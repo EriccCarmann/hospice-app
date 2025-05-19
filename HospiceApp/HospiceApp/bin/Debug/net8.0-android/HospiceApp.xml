@@ -25,11 +25,33 @@
         <member name="P:HospiceApp.ViewModels.MainViewModel.IllnessByName">
             <inheritdoc cref="F:HospiceApp.ViewModels.MainViewModel._illnessByName"/>
         </member>
+        <member name="T:HospiceApp.ViewModels.DiseaseName">
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.DiseaseName.Name">
+            <inheritdoc cref="F:HospiceApp.ViewModels.DiseaseName._name"/>
+        </member>
         <member name="T:HospiceApp.ViewModels.SearchDiseasesViewModel">
             <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.FilteredList">
+            <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._filteredList"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.SelectedItem">
+            <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._selectedItem"/>
         </member>
         <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.Name">
             <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._name"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.CursorPosition">
+            <inheritdoc cref="F:HospiceApp.ViewModels.SearchDiseasesViewModel._cursorPosition"/>
+        </member>
+        <member name="F:HospiceApp.ViewModels.SearchDiseasesViewModel.textChangedCommand">
+            <summary>The backing field for <see cref="P:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChangedCommand"/>.</summary>
+        </member>
+        <member name="P:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:HospiceApp.ViewModels.SearchDiseasesViewModel.TextChanged(System.String)"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
             <summary>
@@ -172,6 +194,15 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FilteredList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FilteredList" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedItem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CursorPosition">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
+        </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
@@ -192,6 +223,15 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FilteredList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FilteredList" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedItem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CursorPosition">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
         </member>
     </members>
 </doc>
