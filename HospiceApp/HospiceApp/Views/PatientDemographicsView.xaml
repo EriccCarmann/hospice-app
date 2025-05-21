@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:HospiceApp.ViewModels"
+             x:DataType="viewModels:PatientDemographicsViewModel"
+             x:Class="HospiceApp.Views.PatientDemographicsView">
+    <VerticalStackLayout Padding="20" Spacing="15">
+            
+        <Entry Placeholder="Full Name"
+               Text="{Binding FullName}"
+               Keyboard="Text" />
+
+        <DatePicker Date="{Binding DateOfBirth}" />
+
+        <Entry Placeholder="Full Address"
+               Text="{Binding FullAdress}"
+               Keyboard="Text" />
+
+        <Entry Placeholder="Primary Phone Number"
+               Text="{Binding PhoneNumber}"
+               Keyboard="Telephone" />
+
+        <Entry Placeholder="Secondary Phone Number"
+               Text="{Binding SecondaryPhoneNumber}"
+               Keyboard="Telephone" />
+
+        <Entry Placeholder="Primary Insurance"
+               Text="{Binding PrimaryInsurance}"
+               Keyboard="Text" />
+
+        <Button Text="Continue"
+                Command="{Binding ContinueCommand}" />
+
+    </VerticalStackLayout>
+</ContentView>

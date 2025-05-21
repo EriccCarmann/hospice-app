@@ -40,6 +40,17 @@
               <Label Text="Search diseases" 
                      HorizontalOptions="Center"/>
           </VerticalStackLayout>
+          
+          <VerticalStackLayout Grid.Row="1" Grid.Column="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+              <ImageButton Source="user_info.png"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           Command="{Binding AddUserInfo}" />
+              <Label Text="Add user info" 
+                     HorizontalOptions="Center"/>
+          </VerticalStackLayout>
 
       </Grid>
   </VerticalStackLayout>

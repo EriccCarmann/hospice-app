@@ -5,6 +5,7 @@ using HospiceApp.Views;
 using HospiceApp.Services.Abstract;
 using HospiceApp.Services.Implementation;
 using zoft.MauiExtensions.Controls;
+using PatientDemographicsViewModel = HospiceApp.ViewModels.PatientDemographicsViewModel;
 
 namespace HospiceApp;
 
@@ -29,6 +30,9 @@ public static class MauiProgram
         builder.Services.AddTransientWithShellRoute<MainPage, MainViewModel>(nameof(MainPage));
         builder.Services.AddTransientWithShellRoute<AllDiseasesPage, AllDiseasesViewModel>(nameof(AllDiseasesPage));
         builder.Services.AddTransientWithShellRoute<SearchDiseasesPage, SearchDiseasesViewModel>(nameof(SearchDiseasesPage));
+        
+        builder.Services.AddTransientWithShellRoute<InputUserDataPage, InputUserDataViewModel>(nameof(InputUserDataPage));
+        builder.Services.AddTransientWithShellRoute<PatientDemographicsView, PatientDemographicsViewModel>(nameof(PatientDemographicsView));
 
         builder.Services.AddTransientPopup<AddOrEditDiseasePopup, AddOrEditDiseasePopupViewModel>();
         

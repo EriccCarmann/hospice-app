@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
+             xmlns:views="clr-namespace:HospiceApp.Views"
+             x:DataType="viewmodel:InputUserDataViewModel"
+             x:Class="HospiceApp.Views.InputUserDataPage">
+    <ContentPage.Content>
+        <Grid>
+            <views:PatientDemographicsView IsVisible="False" />
+            <views:SearchDiseasesPage IsVisible="True"  />
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

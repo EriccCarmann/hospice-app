@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		qp2dnzrpKeE3hmSlR7OOaTstPlo=
+		+UmnQZMnfF+H1+vDk9hLK3cVXX8=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -60,6 +60,10 @@
 		<data>
 		xqiISNpvymbDodXs3WqyXv3GE9c=
 		</data>
+		<key>Resources/user_info.png</key>
+		<data>
+		cT69lB7DHEMoVVaeGTL7wYcC6rM=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -88,14 +92,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MxeaHtRV92C3jlPjcxuUb/2FvgFMZj1KN8qJXZ+jA8M=
+			TlZM/ZpAk8N2+XrxDKEIpf0phVejehyam5HkZ19/ClQ=
 			</data>
 		</dict>
 		<key>MonoBundle/HospiceApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			loMSiw3LpO2wWSPOd8toKB98JsVduv9LH66a0gZU4Kg=
+			NOvU3XvDTn0GFeYQDLs6wX2WTVpX0PzYh3pcxg0bcgI=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -1684,7 +1688,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			smh8jMUrMaxHY0HG+KhiJsC7L/4xj83q6NRSkPh2taI=
+			gIzxsVK6wC9c81blMlvQ+FL7hW7u3sJ72zL2dto+AOM=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1769,6 +1773,13 @@
 			<key>hash2</key>
 			<data>
 			e5JiBXOHyNIuqiAk9e4uzoMYakLAvRo8BhobxmvybgM=
+			</data>
+		</dict>
+		<key>Resources/user_info.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KqdKFi7obiIHdOdjLh+sAXPFG81ZEzcD8a9/bamG9L8=
 			</data>
 		</dict>
 	</dict>

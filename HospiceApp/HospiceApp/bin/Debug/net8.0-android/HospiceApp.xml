@@ -25,6 +25,27 @@
         <member name="P:HospiceApp.ViewModels.MainViewModel.IllnessByName">
             <inheritdoc cref="F:HospiceApp.ViewModels.MainViewModel._illnessByName"/>
         </member>
+        <member name="T:HospiceApp.ViewModels.PatientDemographicsViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.FullName">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._fullName"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.DateOfBirth">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._dateOfBirth"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.FullAdress">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._fullAdress"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.PhoneNumber">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._phoneNumber"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.SecondaryPhoneNumber">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._secondaryPhoneNumber"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.PrimaryInsurance">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._primaryInsurance"/>
+        </member>
         <member name="T:HospiceApp.ViewModels.DiseaseName">
             <inheritdoc/>
         </member>
@@ -194,6 +215,24 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FullName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FullName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DateOfBirth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DateOfBirth" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FullAdress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FullAdress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SecondaryPhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SecondaryPhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PrimaryInsurance">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PrimaryInsurance" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FilteredList">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FilteredList" generated properties.</summary>
         </member>
@@ -223,6 +262,24 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FullName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FullName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DateOfBirth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DateOfBirth" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FullAdress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FullAdress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SecondaryPhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SecondaryPhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PrimaryInsurance">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PrimaryInsurance" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FilteredList">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FilteredList" generated properties.</summary>

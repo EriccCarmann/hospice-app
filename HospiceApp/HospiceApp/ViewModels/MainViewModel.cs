@@ -14,14 +14,21 @@ public partial class MainViewModel : ObservableObject
 
     public IRelayCommand AllDiseases { get; set; }
     public IRelayCommand SearchDisease { get; set; }
+    public IRelayCommand AddUserInfo { get; set; }
   
     public MainViewModel(INavigationService navigationService)
     {
         _navigationService = navigationService;
         AllDiseases = new RelayCommand(GoToAllDiseases);
         SearchDisease = new RelayCommand(GoToSearchDiseases);
+        AddUserInfo = new RelayCommand(GoToAddUserInfo);
     }
 
+    private void GoToAddUserInfo()
+    {
+        _navigationService.GoToAddUserInfo();
+    }
+    
     private void GoToAllDiseases()
     {
         _navigationService.GoToAllDiseases();
