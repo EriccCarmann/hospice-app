@@ -11,16 +11,34 @@
             <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto,Auto">
                 <views:PatientDemographicsView
                     Grid.Row="0"
-                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:InputUserDataViewModel}}, Path=IsDemographicsVisible, FallbackValue=True}"/>
+                    IsVisible="{Binding IsDemographicsVisible}"/>
                 <views:HealthIssuesView
                     Grid.Row="1"
-                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:InputUserDataViewModel}}, Path=IsHealthIssuesVisible, FallbackValue=False}"/>
+                    IsVisible="{Binding IsHealthIssuesVisible}"/>
                 <Button
                     Grid.Row="2"
                     Text="Next"
                     Command="{Binding NextViewCommand}"
                 />
             </Grid>
+            
+            <!-- <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto"> -->
+            <!--     <views:PatientDemographicsView -->
+            <!--         Grid.Row="0" -->
+            <!--         IsVisible="{Binding IsDemographicsVisible, FallbackValue=True}"/> -->
+            <!--     <views:HealthIssuesView -->
+            <!--         Grid.Row="1" -->
+            <!--         IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/> -->
+            <!-- </Grid> -->
+            <!-- -->
+            <!-- <Grid x:Name="MultiStepGrid"> -->
+            <!--     <Grid.Row  /> -->
+            <!--     <views:PatientDemographicsView -->
+            <!--         IsVisible="{Binding IsDemographicsVisible}"/> -->
+            <!--     <views:HealthIssuesView -->
+            <!--         IsVisible="{Binding IsHealthIssuesVisible}"/> -->
+            <!-- </Grid> -->
+            
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

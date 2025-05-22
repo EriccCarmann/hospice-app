@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:HospiceApp.ViewModels"
              x:DataType="viewModels:PatientDemographicsViewModel"
-             x:Class="HospiceApp.Views.PatientDemographicsView">
+             x:Class="HospiceApp.Views.PatientDemographicsView"
+             IsVisible="{Binding PatientDemographicsViewVisibility}">
     <VerticalStackLayout Padding="20" Spacing="15">
             
         <Entry Placeholder="Full Name"

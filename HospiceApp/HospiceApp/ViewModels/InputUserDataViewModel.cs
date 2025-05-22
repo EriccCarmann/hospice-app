@@ -29,9 +29,6 @@ public partial class InputUserDataViewModel : ObservableObject
 
     private void OnNextViewCommand()
     {
-        IsDemographicsVisible = false;
-        IsHealthIssuesVisible = true;
-        
         if (IsDemographicsVisible)
         {
             IsDemographicsVisible = false;
