@@ -19,6 +19,40 @@
         <member name="P:HospiceApp.ViewModels.AddOrEditDiseasePopupViewModel.IsHospiceEligible">
             <inheritdoc cref="F:HospiceApp.ViewModels.AddOrEditDiseasePopupViewModel._isHospiceEligible"/>
         </member>
+        <member name="T:HospiceApp.ViewModels.HealthIssuesViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.HealthIssuesViewVisibility">
+            <inheritdoc cref="F:HospiceApp.ViewModels.HealthIssuesViewModel._healthIssuesViewVisibility"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.FilteredList">
+            <inheritdoc cref="F:HospiceApp.ViewModels.HealthIssuesViewModel._filteredList"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.SelectedItem">
+            <inheritdoc cref="F:HospiceApp.ViewModels.HealthIssuesViewModel._selectedItem"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.Name">
+            <inheritdoc cref="F:HospiceApp.ViewModels.HealthIssuesViewModel._name"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.CursorPosition">
+            <inheritdoc cref="F:HospiceApp.ViewModels.HealthIssuesViewModel._cursorPosition"/>
+        </member>
+        <member name="F:HospiceApp.ViewModels.HealthIssuesViewModel.textChangedCommand">
+            <summary>The backing field for <see cref="P:HospiceApp.ViewModels.HealthIssuesViewModel.TextChangedCommand"/>.</summary>
+        </member>
+        <member name="P:HospiceApp.ViewModels.HealthIssuesViewModel.TextChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:HospiceApp.ViewModels.HealthIssuesViewModel.TextChanged(System.String)"/>.</summary>
+        </member>
+        <member name="T:HospiceApp.ViewModels.InputUserDataViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.InputUserDataViewModel.IsDemographicsVisible">
+            <inheritdoc cref="F:HospiceApp.ViewModels.InputUserDataViewModel._isDemographicsVisible"/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.InputUserDataViewModel.IsHealthIssuesVisible">
+            <inheritdoc cref="F:HospiceApp.ViewModels.InputUserDataViewModel._isHealthIssuesVisible"/>
+        </member>
         <member name="T:HospiceApp.ViewModels.MainViewModel">
             <inheritdoc/>
         </member>
@@ -27,6 +61,9 @@
         </member>
         <member name="T:HospiceApp.ViewModels.PatientDemographicsViewModel">
             <inheritdoc/>
+        </member>
+        <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.PatientDemographicsViewVisibility">
+            <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._patientDemographicsViewVisibility"/>
         </member>
         <member name="P:HospiceApp.ViewModels.PatientDemographicsViewModel.FullName">
             <inheritdoc cref="F:HospiceApp.ViewModels.PatientDemographicsViewModel._fullName"/>
@@ -212,8 +249,29 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsHospiceEligible">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsHospiceEligible" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.HealthIssuesViewVisibility">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "HealthIssuesViewVisibility" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FilteredList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FilteredList" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedItem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CursorPosition">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsDemographicsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsDemographicsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsHealthIssuesVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsHealthIssuesVisible" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PatientDemographicsViewVisibility">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PatientDemographicsViewVisibility" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FullName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FullName" generated properties.</summary>
@@ -233,15 +291,6 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PrimaryInsurance">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PrimaryInsurance" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FilteredList">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FilteredList" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedItem">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CursorPosition">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
-        </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
@@ -260,8 +309,29 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsHospiceEligible">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsHospiceEligible" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.HealthIssuesViewVisibility">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "HealthIssuesViewVisibility" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FilteredList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FilteredList" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedItem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CursorPosition">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsDemographicsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsDemographicsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsHealthIssuesVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsHealthIssuesVisible" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IllnessByName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IllnessByName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PatientDemographicsViewVisibility">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PatientDemographicsViewVisibility" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FullName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FullName" generated properties.</summary>
@@ -280,15 +350,6 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PrimaryInsurance">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PrimaryInsurance" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FilteredList">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FilteredList" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedItem">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedItem" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CursorPosition">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CursorPosition" generated properties.</summary>
         </member>
     </members>
 </doc>

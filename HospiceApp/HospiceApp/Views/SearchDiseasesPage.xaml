@@ -11,10 +11,6 @@
     <ContentPage.Content>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto" Padding="10">
-                <!-- <Entry Grid.Column="0" -->
-                <!--        Text="{Binding Name}" -->
-                <!--        Placeholder="Enter name" /> -->
-                
                 <controls:AutoCompleteEntry 
                     Grid.Column="0"
                     Placeholder="Search"
@@ -27,18 +23,6 @@
                     SelectedSuggestion="{Binding SelectedItem, Mode=TwoWay}"
                     ClearButtonVisibility="Never"
                     HeightRequest="50"/>
-                
-                
-                <!-- <controls:AutoCompleteEntry -->
-                <!--     Grid.Column="0" -->
-                <!--     Text="{Binding Name, Mode=TwoWay}"    -->
-                <!--     Placeholder="Search diseases…" -->
-                <!--     ItemsSource="{Binding FilteredList}" -->
-                <!--     TextChangedCommand="{Binding TextChangedCommand}" -->
-                <!--     SelectedSuggestion="{Binding SelectedItem}" -->
-                <!--     CursorPosition="{Binding CursorPosition, Mode=TwoWay}" -->
-                <!--     ClearButtonVisibility="WhileEditing" -->
-                <!--     HeightRequest="50"/> -->
                 <Button Grid.Column="1"
                         Text="Search"
                         Command="{Binding SearchCommand}" />

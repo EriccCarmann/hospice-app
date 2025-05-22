@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HospiceApp.Models;
 using HospiceApp.Services.Abstract;
-using zoft.MauiExtensions.Core.Extensions;
 
 namespace HospiceApp.ViewModels;
 

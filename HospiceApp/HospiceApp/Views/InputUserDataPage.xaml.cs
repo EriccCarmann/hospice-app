@@ -12,6 +12,5 @@ public partial class InputUserDataPage : ContentPage
     public InputUserDataPage(InputUserDataViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = viewModel;
     }
 }

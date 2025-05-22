@@ -7,10 +7,50 @@
              x:DataType="viewmodel:InputUserDataViewModel"
              x:Class="HospiceApp.Views.InputUserDataPage">
     <ContentPage.Content>
-        <Grid>
-            <views:PatientDemographicsView IsVisible="False" />
-            <views:SearchDiseasesPage IsVisible="True"  />
-        </Grid>
-
+        <VerticalStackLayout>
+            <Button
+                Text="Next"
+                Command="{Binding NextViewCommand}"
+            />
+            <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto">
+                <views:PatientDemographicsView
+                    Grid.Row="0"
+                    IsVisible="{Binding IsDemographicsVisible}"/>
+                <!-- BindingContext="{Binding DemographicsViewModel}" -->
+                <views:HealthIssuesView
+                    Grid.Row="1"
+                    IsVisible="{Binding IsHealthIssuesVisible}"/>
+                <!-- BindingContext="{Binding HealthIssuesViewModel}" -->
+            </Grid>
+            
+            <!-- <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto"> -->
+            <!--     <views:PatientDemographicsView -->
+            <!--         Grid.Row="0" -->
+            <!--         BindingContext="{Binding DemographicsViewModel}" -->
+            <!--         IsVisible="{Binding IsDemographicsVisible, FallbackValue=False}"/> -->
+            <!--     <views:HealthIssuesView -->
+            <!--         Grid.Row="1" -->
+            <!--         BindingContext="{Binding HealthIssuesViewModel}" -->
+            <!--         IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/> -->
+            <!-- </Grid> -->
+            
+            <!-- <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto"> -->
+            <!--     <views:PatientDemographicsView -->
+            <!--         Grid.Row="0" -->
+            <!--         IsVisible="{Binding IsDemographicsVisible, FallbackValue=True}"/> -->
+            <!--     <views:HealthIssuesView -->
+            <!--         Grid.Row="1" -->
+            <!--         IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/> -->
+            <!-- </Grid> -->
+            <!-- -->
+            <!-- <Grid x:Name="MultiStepGrid"> -->
+            <!--     <Grid.Row  /> -->
+            <!--     <views:PatientDemographicsView -->
+            <!--         IsVisible="{Binding IsDemographicsVisible}"/> -->
+            <!--     <views:HealthIssuesView -->
+            <!--         IsVisible="{Binding IsHealthIssuesVisible}"/> -->
+            <!-- </Grid> -->
+            
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

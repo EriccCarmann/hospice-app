@@ -9,10 +9,10 @@
 
     <TabBar>
         <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/> <!--  Route="MainPage"  -->
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
         <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/> <!--  Route="MainPage"  -->
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </TabBar>
 </Shell>
