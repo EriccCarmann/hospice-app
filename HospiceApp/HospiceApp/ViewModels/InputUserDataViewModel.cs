@@ -23,9 +23,8 @@ public partial class InputUserDataViewModel : ObservableObject
         
         NextViewCommand = new RelayCommand(OnNextViewCommand);
         
-        IsHealthIssuesVisible = false;
         IsDemographicsVisible = true;
-
+        IsHealthIssuesVisible = false;
     }
 
     private void OnNextViewCommand()
