@@ -15,6 +15,9 @@
                 <views:HealthIssuesView
                     Grid.Row="1"
                     BindingContext="{Binding HealthIssuesContext}" />
+                <views:SymptomBurdenView
+                    Grid.Row="1"
+                    BindingContext="{Binding SymptomBurdenContext}" />
             </Grid>
         </ScrollView>
 
