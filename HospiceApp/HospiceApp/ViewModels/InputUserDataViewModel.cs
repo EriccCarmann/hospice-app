@@ -14,22 +14,38 @@ public partial class InputUserDataViewModel : ObservableObject
     [ObservableProperty] private bool _isHealthIssuesVisible = false;
     [ObservableProperty] private bool _previousViewCommandVisibility = false;
 
+    public PatientDemographicsViewModel DemographicsViewModel { get; }
+    public HealthIssuesViewModel HealthIssuesViewModel { get; }
+
     public IRelayCommand NextViewCommand { get; }
     public IRelayCommand PreviousViewCommand { get; }
-
+    
     public InputUserDataViewModel(IStrapiService strapiService)
     {
         _strapiService = strapiService;
         
-        NextViewCommand = new RelayCommand(OnNext);
+        // Create child ViewModels
+        DemographicsViewModel = new PatientDemographicsViewModel();
+        HealthIssuesViewModel = new HealthIssuesViewModel(_strapiService);
+        
+        IsDemographicsVisible = true;
+        IsHealthIssuesVisible = false;
+        NextViewCommand = new RelayCommand(OnNextViewCommand);
         PreviousViewCommand = new RelayCommand(OnPrevious);
     }
 
-    private void OnNext()
+    private void OnNextViewCommand()
     {
-        IsDemographicsVisible = false;
-        IsHealthIssuesVisible = true;
-        PreviousViewCommandVisibility = true;
+        if (IsDemographicsVisible)
+        {
+            IsDemographicsVisible = false;
+            IsHealthIssuesVisible = true;
+        }
+        else if (IsHealthIssuesVisible)
+        {
+            // TODO: Handle next view transition
+            IsHealthIssuesVisible = false;
+        }
     }
 
     private void OnPrevious()
@@ -39,57 +55,3 @@ public partial class InputUserDataViewModel : ObservableObject
         PreviousViewCommandVisibility = false;
     }
 }
-
-// public partial class InputUserDataViewModel : ObservableObject
-// {
-//     private readonly IStrapiService _strapiService;
-//
-//     [ObservableProperty]
-//     private bool _isDemographicsVisible = true;
-//
-//     [ObservableProperty]
-//     private bool _isHealthIssuesVisible = false;
-//     
-//     [ObservableProperty]
-//     private bool _previousViewCommandVisibility = false;
-//     
-//     public IRelayCommand NextViewCommand { get; }
-//     public IRelayCommand PreviousViewCommand { get; }
-//
-//     public InputUserDataViewModel(IStrapiService strapiService)
-//     {
-//         _strapiService = strapiService;
-//         
-//         NextViewCommand = new RelayCommand(OnNextViewCommand);
-//         PreviousViewCommand = new RelayCommand(OnPreviousViewCommand);
-//         
-//         IsDemographicsVisible = true;
-//         IsHealthIssuesVisible = false;
-//     }
-//
-//     private void OnPreviousViewCommand()
-//     {
-//         IsDemographicsVisible = true;
-//         IsHealthIssuesVisible = false;
-//         PreviousViewCommandVisibility = false;
-//     }
-//     
-//     private void OnNextViewCommand()
-//     {
-//         IsDemographicsVisible = false;
-//         IsHealthIssuesVisible = true;
-//         PreviousViewCommandVisibility = true;
-//         
-//         if (IsDemographicsVisible)
-//         {
-//             IsDemographicsVisible = false;
-//             IsHealthIssuesVisible = true;
-//             PreviousViewCommandVisibility = true;
-//         }
-//         else if (IsHealthIssuesVisible)
-//         {
-//             // TODO: Handle next view transition
-//             IsHealthIssuesVisible = false;
-//         }
-//     }
-// }

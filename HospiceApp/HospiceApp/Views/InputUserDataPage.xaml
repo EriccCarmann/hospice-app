@@ -11,10 +11,12 @@
             <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto,Auto">
                 <views:PatientDemographicsView
                     Grid.Row="0"
+                    BindingContext="{Binding DemographicsViewModel}"
                     IsVisible="{Binding IsDemographicsVisible}"/>
                 <views:HealthIssuesView
                     Grid.Row="1"
-                    IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/>
+                    BindingContext="{Binding HealthIssuesViewModel}"
+                    IsVisible="{Binding IsHealthIssuesVisible}"/>
             </Grid>
             <Grid ColumnDefinitions="*, *">
                 <Button
