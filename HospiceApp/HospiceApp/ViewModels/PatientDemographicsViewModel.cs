@@ -7,7 +7,7 @@ namespace HospiceApp.ViewModels;
 public partial class PatientDemographicsViewModel : ObservableObject
 {
     [ObservableProperty]
-    private bool _patientDemographicsViewVisibility;
+    public bool isDemographicsVisible;
     
     
     

@@ -14,8 +14,8 @@ public partial class InputUserDataViewModel : ObservableObject
     [ObservableProperty] private bool _isHealthIssuesVisible = false;
     [ObservableProperty] private bool _previousViewCommandVisibility = false;
 
-    public PatientDemographicsViewModel DemographicsViewModel { get; }
-    public HealthIssuesViewModel HealthIssuesViewModel { get; }
+    public PatientDemographicsViewModel PatientDemographicsContext { get; }
+    public HealthIssuesViewModel HealthIssuesContext { get; set; }
 
     public IRelayCommand NextViewCommand { get; }
     public IRelayCommand PreviousViewCommand { get; }
@@ -25,33 +25,35 @@ public partial class InputUserDataViewModel : ObservableObject
         _strapiService = strapiService;
         
         // Create child ViewModels
-        DemographicsViewModel = new PatientDemographicsViewModel();
-        HealthIssuesViewModel = new HealthIssuesViewModel(_strapiService);
+        PatientDemographicsContext = new PatientDemographicsViewModel();
+        HealthIssuesContext = new HealthIssuesViewModel(_strapiService);
+
+        PatientDemographicsContext.IsDemographicsVisible = true;
+        HealthIssuesContext.IsHealthIssuesVisible = false;
         
-        IsDemographicsVisible = true;
-        IsHealthIssuesVisible = false;
         NextViewCommand = new RelayCommand(OnNextViewCommand);
         PreviousViewCommand = new RelayCommand(OnPrevious);
     }
 
     private void OnNextViewCommand()
     {
-        if (IsDemographicsVisible)
+        if (PatientDemographicsContext.IsDemographicsVisible)
         {
-            IsDemographicsVisible = false;
-            IsHealthIssuesVisible = true;
+            PatientDemographicsContext.IsDemographicsVisible = false;
+            HealthIssuesContext.IsHealthIssuesVisible = true;
+            PreviousViewCommandVisibility = true;
         }
-        else if (IsHealthIssuesVisible)
+        else if (HealthIssuesContext.IsHealthIssuesVisible)
         {
             // TODO: Handle next view transition
-            IsHealthIssuesVisible = false;
+            HealthIssuesContext.IsHealthIssuesVisible = false;
         }
     }
 
     private void OnPrevious()
     {
-        IsDemographicsVisible = true;
-        IsHealthIssuesVisible = false;
+        PatientDemographicsContext.IsDemographicsVisible = true;
+        HealthIssuesContext.IsHealthIssuesVisible = false;
         PreviousViewCommandVisibility = false;
     }
 }

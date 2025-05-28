@@ -9,8 +9,9 @@ namespace HospiceApp.ViewModels;
 public partial class HealthIssuesViewModel : ObservableObject
 {
     [ObservableProperty]
-    private bool _healthIssuesViewVisibility;
+    public bool isHealthIssuesVisible;
     
+
     
     
     

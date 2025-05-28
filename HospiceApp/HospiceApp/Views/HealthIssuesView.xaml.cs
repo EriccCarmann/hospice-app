@@ -8,5 +8,6 @@ public partial class HealthIssuesView : ContentView
     public HealthIssuesView()
     {
         InitializeComponent();
+        //BindingContext = new HealthIssuesViewModel(new StrapiService());
     }
 }
