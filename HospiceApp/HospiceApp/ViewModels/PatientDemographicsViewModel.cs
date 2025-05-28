@@ -6,33 +6,16 @@ namespace HospiceApp.ViewModels;
 
 public partial class PatientDemographicsViewModel : ObservableObject
 {
-    [ObservableProperty]
-    public bool isDemographicsVisible;
-    
-    
-    
-    
-    
-    private readonly InputUserDataViewModel _parentViewModel;
-
+    [ObservableProperty] public bool isDemographicsVisible;
     [ObservableProperty] private string _fullName;
     [ObservableProperty] private DateTime _dateOfBirth = DateTime.Now;
     [ObservableProperty] private string _fullAdress;
     [ObservableProperty] private string _phoneNumber;
     [ObservableProperty] private string _secondaryPhoneNumber;
     [ObservableProperty] private string _primaryInsurance;
-    
-    public IRelayCommand ContinueCommand { get; }
-
-    public PatientDemographicsViewModel()//InputUserDataViewModel parentViewModel
+  
+    public PatientDemographicsViewModel()
     {
-       // _parentViewModel = parentViewModel;
-        ContinueCommand = new RelayCommand(OnContinue);
-    }
-
-    private void OnContinue()
-    {
-        // TODO: Validate form data
-       // _parentViewModel.ShowHealthIssuesCommand.Execute(null);
+        
     }
 }

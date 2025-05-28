@@ -6,7 +6,6 @@
              x:Class="HospiceApp.Views.InputUserDataPage">
 
     <Grid RowDefinitions="*,Auto" Padding="10">
-        <!-- Main Content Area -->
         <ScrollView Grid.Row="0">
             <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto,Auto">
                 <views:PatientDemographicsView
@@ -21,7 +20,6 @@
             </Grid>
         </ScrollView>
 
-        <!-- Bottom Navigation Buttons -->
         <Grid Grid.Row="1" ColumnDefinitions="*,*">
             <Button
                 Grid.Column="0"

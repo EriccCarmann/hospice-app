@@ -6,29 +6,65 @@
              x:DataType="viewModels:PatientDemographicsViewModel"
              x:Class="HospiceApp.Views.PatientDemographicsView"
              IsVisible="{Binding IsDemographicsVisible}">
-    <VerticalStackLayout Padding="20" Spacing="15">
-            
-        <Entry Placeholder="Full Name"
-               Text="{Binding FullName}"
-               Keyboard="Text" />
+       <Grid Padding="20"
+             RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+             ColumnDefinitions="Auto, *">
+              <Label Grid.Row="0"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Full name:"/>
+              <Entry Grid.Row="0"
+                     Grid.Column="1"
+                     Placeholder="Full Name"
+                     Text="{Binding FullName}"
+                     Keyboard="Text" />
+              
+              <Label Grid.Row="1"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Date of Birth:"/>
+              <DatePicker Grid.Row="1"
+                          Grid.Column="1"
+                          Date="{Binding DateOfBirth}"/>
+              
+              <Label Grid.Row="2"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Full Address:"/>
+              <Entry Grid.Row="2"
+                     Grid.Column="1"
+                     Placeholder="Full Address"
+                     Text="{Binding FullAdress}"
+                     Keyboard="Text" />
 
-        <DatePicker Date="{Binding DateOfBirth}" />
+              <Label Grid.Row="3"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Phone Number:"/>
+              <Entry Grid.Row="3"
+                     Grid.Column="1"
+                     Placeholder="Primary Phone Number"
+                     Text="{Binding PhoneNumber}"
+                     Keyboard="Telephone" />
 
-        <Entry Placeholder="Full Address"
-               Text="{Binding FullAdress}"
-               Keyboard="Text" />
+              <Label Grid.Row="4"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Sec. Phone Number:"/>
+              <Entry Grid.Row="4"
+                     Grid.Column="1"
+                     Placeholder="Secondary Phone Number"
+                     Text="{Binding SecondaryPhoneNumber}"
+                     Keyboard="Telephone" />
 
-        <Entry Placeholder="Primary Phone Number"
-               Text="{Binding PhoneNumber}"
-               Keyboard="Telephone" />
-
-        <Entry Placeholder="Secondary Phone Number"
-               Text="{Binding SecondaryPhoneNumber}"
-               Keyboard="Telephone" />
-
-        <Entry Placeholder="Primary Insurance"
-               Text="{Binding PrimaryInsurance}"
-               Keyboard="Text" />
-
-    </VerticalStackLayout>
+              <Label Grid.Row="5"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     Text="Primary Insurance:"/>
+              <Entry Grid.Row="5"
+                     Grid.Column="1"
+                     Placeholder="Primary Insurance"
+                     Text="{Binding PrimaryInsurance}"
+                     Keyboard="Text" />
+       </Grid>
 </ContentView>
