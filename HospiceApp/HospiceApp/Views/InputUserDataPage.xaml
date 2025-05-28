@@ -14,31 +14,21 @@
                     IsVisible="{Binding IsDemographicsVisible}"/>
                 <views:HealthIssuesView
                     Grid.Row="1"
-                    IsVisible="{Binding IsHealthIssuesVisible}"/>
+                    IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/>
+            </Grid>
+            <Grid ColumnDefinitions="*, *">
                 <Button
-                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Previous"
+                    IsVisible="{Binding PreviousViewCommandVisibility}"
+                    Command="{Binding PreviousViewCommand}"
+                />
+                <Button
+                    Grid.Column="1"
                     Text="Next"
                     Command="{Binding NextViewCommand}"
                 />
             </Grid>
-            
-            <!-- <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto"> -->
-            <!--     <views:PatientDemographicsView -->
-            <!--         Grid.Row="0" -->
-            <!--         IsVisible="{Binding IsDemographicsVisible, FallbackValue=True}"/> -->
-            <!--     <views:HealthIssuesView -->
-            <!--         Grid.Row="1" -->
-            <!--         IsVisible="{Binding IsHealthIssuesVisible, FallbackValue=False}"/> -->
-            <!-- </Grid> -->
-            <!-- -->
-            <!-- <Grid x:Name="MultiStepGrid"> -->
-            <!--     <Grid.Row  /> -->
-            <!--     <views:PatientDemographicsView -->
-            <!--         IsVisible="{Binding IsDemographicsVisible}"/> -->
-            <!--     <views:HealthIssuesView -->
-            <!--         IsVisible="{Binding IsHealthIssuesVisible}"/> -->
-            <!-- </Grid> -->
-            
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

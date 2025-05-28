@@ -7,5 +7,6 @@ public partial class PatientDemographicsView : ContentView
     public PatientDemographicsView()
     {
         InitializeComponent();
+        //BindingContext = new PatientDemographicsViewModel();
     }
 }
