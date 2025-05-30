@@ -16,7 +16,10 @@
                     BindingContext="{Binding HealthIssuesContext}" />
                 <views:SymptomBurdenView
                     Grid.Row="1"
-                    BindingContext="{Binding SymptomBurdenContext}" />
+                    BindingContext="{Binding SymptomBurdenContext}" /> 
+                <views:MultiStepFormResultView
+                    Grid.Row="1"
+                    BindingContext="{Binding MultiStepFormResultContext}" />
             </Grid>
         </ScrollView>
 
@@ -29,6 +32,7 @@
             <Button
                 Grid.Column="1"
                 Text="Next"
+                IsVisible="{Binding NextViewCommandVisibility}"
                 Command="{Binding NextViewCommand}" />
         </Grid>
     </Grid>

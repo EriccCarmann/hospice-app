@@ -34,6 +34,8 @@ public static class MauiProgram
         builder.Services.AddTransientWithShellRoute<InputUserDataPage, InputUserDataViewModel>(nameof(InputUserDataPage));
         builder.Services.AddTransientWithShellRoute<PatientDemographicsView, PatientDemographicsViewModel>(nameof(PatientDemographicsView));
         builder.Services.AddTransientWithShellRoute<HealthIssuesView, HealthIssuesViewModel>(nameof(HealthIssuesView));
+        builder.Services.AddTransientWithShellRoute<MultiStepFormResultView, MultiStepFormResultViewModel>(nameof(MultiStepFormResultView));
+        builder.Services.AddTransientWithShellRoute<AboutPage, AboutViewModel>(nameof(AboutPage));
 
         builder.Services.AddTransientPopup<AddOrEditDiseasePopup, AddOrEditDiseasePopupViewModel>();
         

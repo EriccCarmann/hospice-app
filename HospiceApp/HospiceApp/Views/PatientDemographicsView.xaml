@@ -1,70 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:HospiceApp.ViewModels"
              x:DataType="viewModels:PatientDemographicsViewModel"
              x:Class="HospiceApp.Views.PatientDemographicsView"
              IsVisible="{Binding IsDemographicsVisible}">
-       <Grid Padding="20"
-             RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
-             ColumnDefinitions="Auto, *">
-              <Label Grid.Row="0"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Full name:"/>
-              <Entry Grid.Row="0"
-                     Grid.Column="1"
-                     Placeholder="Full Name"
-                     Text="{Binding FullName}"
-                     Keyboard="Text" />
-              
-              <Label Grid.Row="1"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Date of Birth:"/>
-              <DatePicker Grid.Row="1"
-                          Grid.Column="1"
-                          Date="{Binding DateOfBirth}"/>
-              
-              <Label Grid.Row="2"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Full Address:"/>
-              <Entry Grid.Row="2"
-                     Grid.Column="1"
-                     Placeholder="Full Address"
-                     Text="{Binding FullAdress}"
-                     Keyboard="Text" />
 
-              <Label Grid.Row="3"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Phone Number:"/>
-              <Entry Grid.Row="3"
-                     Grid.Column="1"
-                     Placeholder="Primary Phone Number"
-                     Text="{Binding PhoneNumber}"
-                     Keyboard="Telephone" />
+    <Frame CornerRadius="10"
+           Padding="20"
+           Margin="20"
+           BackgroundColor="White"
+           HasShadow="True">
+        <Grid RowSpacing="15"
+              ColumnDefinitions="Auto, *"
+              RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+            
+            <!-- Full Name -->
+            <Label Grid.Row="0" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Full Name:"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="0" Grid.Column="1"
+                   Placeholder="Enter full name"
+                   Text="{Binding FullName}"
+                   Keyboard="Text"/>
 
-              <Label Grid.Row="4"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Sec. Phone Number:"/>
-              <Entry Grid.Row="4"
-                     Grid.Column="1"
-                     Placeholder="Secondary Phone Number"
-                     Text="{Binding SecondaryPhoneNumber}"
-                     Keyboard="Telephone" />
+            <!-- Date of Birth -->
+            <Label Grid.Row="1" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Date of Birth:"
+                   FontAttributes="Bold"/>
+            <DatePicker Grid.Row="1" Grid.Column="1"
+                        Date="{Binding DateOfBirth}"/>
 
-              <Label Grid.Row="5"
-                     Grid.Column="0"
-                     VerticalOptions="Center"
-                     Text="Primary Insurance:"/>
-              <Entry Grid.Row="5"
-                     Grid.Column="1"
-                     Placeholder="Primary Insurance"
-                     Text="{Binding PrimaryInsurance}"
-                     Keyboard="Text" />
-       </Grid>
+            <!-- Full Address -->
+            <Label Grid.Row="2" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Full Address:"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="2" Grid.Column="1"
+                   Placeholder="Enter address"
+                   Text="{Binding FullAdress}"
+                   Keyboard="Text"/>
+
+            <!-- Phone Number -->
+            <Label Grid.Row="3" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Phone Number:"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="3" Grid.Column="1"
+                   Placeholder="Primary phone number"
+                   Text="{Binding PhoneNumber}"
+                   Keyboard="Telephone"/>
+
+            <!-- Secondary Phone Number -->
+            <Label Grid.Row="4" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Secondary Phone Number:"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="4" Grid.Column="1"
+                   Placeholder="Secondary phone number"
+                   Text="{Binding SecondaryPhoneNumber}"
+                   Keyboard="Telephone"/>
+
+            <!-- Primary Insurance -->
+            <Label Grid.Row="5" Grid.Column="0"
+                   VerticalOptions="Center"
+                   Text="Primary Insurance:"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="5" Grid.Column="1"
+                   Placeholder="Enter insurance provider"
+                   Text="{Binding PrimaryInsurance}"
+                   Keyboard="Text"/>
+        </Grid>
+    </Frame>
 </ContentView>

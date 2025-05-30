@@ -11,7 +11,7 @@
         <Tab Title="Home">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Home">
+        <Tab Title="About">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </TabBar>

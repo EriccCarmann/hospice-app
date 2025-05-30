@@ -6,41 +6,52 @@
              IsVisible="{Binding IsSymptomBurdenVisible}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
-      
-            <!-- Pain Level -->
-            <Label Text="Pain Level" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding PainLevel, Mode=TwoWay}" />
+            <Label Text="Pain Level" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding PainLevel, 
+                    Mode=TwoWay}" />
             <Label Text="{Binding PainLevel, StringFormat='Pain Level: {0:F0}'}" />
 
-            <!-- Dyspnea -->
-            <Label Text="Dyspnea (Shortness of Breath)" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding DyspneaLevel, Mode=TwoWay}" />
+            <Label Text="Dyspnea (Shortness of Breath)" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding DyspneaLevel, Mode=TwoWay}" />
             <Label Text="{Binding DyspneaLevel, StringFormat='Dyspnea Level: {0:F0}'}" />
 
-            <!-- Nausea -->
-            <Label Text="Nausea" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding NauseaLevel, Mode=TwoWay}" />
+            <Label Text="Nausea" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding NauseaLevel, Mode=TwoWay}" />
             <Label Text="{Binding NauseaLevel, StringFormat='Nausea Level: {0:F0}'}" />
 
-            <!-- Fatigue -->
-            <Label Text="Fatigue" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding FatigueLevel, Mode=TwoWay}" />
+            <Label Text="Fatigue" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding FatigueLevel, Mode=TwoWay}" />
             <Label Text="{Binding FatigueLevel, StringFormat='Fatigue Level: {0:F0}'}" />
 
-            <!-- Anxiety -->
-            <Label Text="Anxiety" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding AnxietyLevel, Mode=TwoWay}" />
+            <Label Text="Anxiety" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding AnxietyLevel, Mode=TwoWay}" />
             <Label Text="{Binding AnxietyLevel, StringFormat='Anxiety Level: {0:F0}'}" />
 
-            <!-- Confusion -->
-            <Label Text="Confusion" FontAttributes="Bold" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding ConfusionLevel, Mode=TwoWay}" />
+            <Label Text="Confusion" 
+                   FontAttributes="Bold" />
+            <Slider Minimum="0" 
+                    Maximum="10" 
+                    Value="{Binding ConfusionLevel, Mode=TwoWay}" />
             <Label Text="{Binding ConfusionLevel, StringFormat='Confusion Level: {0:F0}'}" />
 
-            <!-- Symptom Management Support -->
-            <Label Text="Needs Symptom Management Support?" FontAttributes="Bold" />
+            <Label Text="Needs Symptom Management Support?" 
+                   FontAttributes="Bold" />
             <Switch IsToggled="{Binding NeedsSymptomSupport, Mode=TwoWay}" />
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentView>

@@ -8,37 +8,32 @@ namespace HospiceApp.ViewModels;
 
 public partial class HealthIssuesViewModel : ObservableObject
 {
-    [ObservableProperty]
-    public bool isHealthIssuesVisible;
-    
-
-    
-    
+    [ObservableProperty] public bool isHealthIssuesVisible;
+    [ObservableProperty] private ObservableCollection<DiseaseName> _filteredList = new();
+    [ObservableProperty] private DiseaseName _selectedItem;
+    [ObservableProperty] private string _name;
+    [ObservableProperty] private string _iCDCode;
+    [ObservableProperty] public int _cursorPosition;
     
     public readonly List<DiseaseName> DiseaseNames = new();
-    
-    [ObservableProperty]
-    private ObservableCollection<DiseaseName> _filteredList = new();
-
-    [ObservableProperty]
-    private DiseaseName _selectedItem;
-    
-    [ObservableProperty] private string _name;
-    
-    [ObservableProperty]
-    public int _cursorPosition;
-    
     private readonly IStrapiService _strapiService;
-    
-     public ObservableCollection<Disease> Diseases { get; } = new ();
-     
-     public IAsyncRelayCommand SearchCommand { get; }
+    public ObservableCollection<Disease> Diseases { get; } = new ();
+    public IAsyncRelayCommand SearchCommand { get; }
+    public IRelayCommand CheckBoxCheckedCommand { get; }
+    public string selectedDiseaseName { get; set; }
     
     public HealthIssuesViewModel(IStrapiService strapiService)
     {
         _strapiService = strapiService;
         
         SearchCommand = new AsyncRelayCommand(SearchDiseases);
+        CheckBoxCheckedCommand = new RelayCommand<Disease>(OnCheckBoxCheckedCommand);
+    }
+    
+    [RelayCommand]
+    private void OnCheckBoxCheckedCommand(Disease disease)
+    {
+        selectedDiseaseName = disease.Name;
     }
     
     [RelayCommand]
