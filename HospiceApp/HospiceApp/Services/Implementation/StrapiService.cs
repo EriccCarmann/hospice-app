@@ -11,8 +11,8 @@ public class StrapiService : IStrapiService
     private readonly HttpClient _mainHttpClient;
     private readonly HttpClient _reservedHttpClient;
     private readonly JsonSerializerOptions _serializerOptions;
-    private const string MainUrl = "https://mighty-whisper-8b282eed39.strapiapp.com";
-    private const string ReservedUrl = "http://10.201.32.78:1337";
+    private const string ReservedUrl= "https://mighty-whisper-8b282eed39.strapiapp.com";
+    private const string MainUrl = "http://10.0.2.2:1337";
     
     public StrapiService()
     {

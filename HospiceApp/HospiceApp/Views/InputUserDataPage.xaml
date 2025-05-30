@@ -1,0 +1,39 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
+             xmlns:views="clr-namespace:HospiceApp.Views"
+             x:DataType="viewmodel:InputUserDataViewModel"
+             x:Class="HospiceApp.Views.InputUserDataPage">
+
+    <Grid RowDefinitions="*,Auto" Padding="10">
+        <ScrollView Grid.Row="0">
+            <Grid x:Name="MultiStepGrid" RowDefinitions="Auto,Auto,Auto">
+                <views:PatientDemographicsView
+                    Grid.Row="0"
+                    BindingContext="{Binding PatientDemographicsContext}" />
+                <views:HealthIssuesView
+                    Grid.Row="1"
+                    BindingContext="{Binding HealthIssuesContext}" />
+                <views:SymptomBurdenView
+                    Grid.Row="1"
+                    BindingContext="{Binding SymptomBurdenContext}" /> 
+                <views:MultiStepFormResultView
+                    Grid.Row="1"
+                    BindingContext="{Binding MultiStepFormResultContext}" />
+            </Grid>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Button
+                Grid.Column="0"
+                Text="Previous"
+                IsVisible="{Binding PreviousViewCommandVisibility}"
+                Command="{Binding PreviousViewCommand}" />
+            <Button
+                Grid.Column="1"
+                Text="Next"
+                IsVisible="{Binding NextViewCommandVisibility}"
+                Command="{Binding NextViewCommand}" />
+        </Grid>
+    </Grid>
+</ContentPage>

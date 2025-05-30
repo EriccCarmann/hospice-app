@@ -13,5 +13,15 @@ public class NavigationService : INavigationService
     public void GoToSearchDiseases()
     {
         Shell.Current.GoToAsync($"{nameof(SearchDiseasesPage)}");
+    }   
+    
+    public void GoToAddUserInfo()
+    {
+        Shell.Current.GoToAsync($"{nameof(InputUserDataPage)}");
+    }
+
+    public void GoToInfo()
+    {
+        Shell.Current.GoToAsync($"{nameof(HospiceInformationPage)}");
     }
 }

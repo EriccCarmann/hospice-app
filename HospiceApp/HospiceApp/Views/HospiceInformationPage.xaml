@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:HospiceApp.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:HospiceInformationViewModel"
+             x:Class="HospiceApp.Views.HospiceInformationPage">
+      <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- About the Hospice Expander -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="🕊️ About the Hospice"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </toolkit:Expander.Header>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True">
+                    <Label Text="Hospice care is specialized medical support for individuals with terminal illnesses, focusing on comfort and quality of life rather than curative treatments. It is typically provided to patients expected to live six months or less, based on a physician's assessment."
+                           FontSize="14"
+                           TextColor="Gray" />
+                </Frame>
+            </toolkit:Expander>
+
+            <!-- Admission Process Expander -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="📋 How the Admission Process Works"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </toolkit:Expander.Header>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Admitting a patient into hospice care involves several coordinated steps to ensure appropriate and timely support:"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="1. Referral Initiation: A referral can be made by the patient, family members, or healthcare providers. This initiates the evaluation process."
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="2. Eligibility Assessment: Two physicians must certify that the patient has a terminal illness with a life expectancy of six months or less if the disease follows its usual course."
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="3. Information Gathering: The hospice team collects essential information, including medical history, current medications, insurance details, and any advance directives like a Do Not Resuscitate (DNR) order."
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="4. Care Plan Development: An individualized care plan is created, focusing on the patient's needs and preferences, encompassing medical, emotional, and spiritual support."
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="5. Admission and Onboarding: Upon agreement, the patient is formally admitted to hospice care, and services commence promptly, often within 24 to 48 hours."
+                               FontSize="14"
+                               TextColor="Gray" />
+                    </VerticalStackLayout>
+                </Frame>
+            </toolkit:Expander>
+            
+            <!-- Contact Information Expander -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="📞 Contact Information"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </toolkit:Expander.Header>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="For more information or assistance, please contact us:"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="📍 Address: 123 Serenity Lane, Warsaw, Poland"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="📞 Phone: +48 22 123 4567"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="📠 Fax: +48 22 765 4321"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="✉️ Email: info@hospiceexample.pl"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="🌐 Website: www.hospiceexample.pl"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Label Text="📅 Visiting Hours: Monday to Friday, 9:00 AM – 5:00 PM"
+                               FontSize="14"
+                               TextColor="Gray" />
+                    </VerticalStackLayout>
+                </Frame>
+            </toolkit:Expander>
+            <!-- Location Expander -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="📍 Our Location"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </toolkit:Expander.Header>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Find us at our main facility:"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Image Source="our_location.png"
+                               HeightRequest="200"
+                               Aspect="AspectFit" />
+                        <Label Text="123 Serenity Lane, Warsaw, Poland"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </toolkit:Expander>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

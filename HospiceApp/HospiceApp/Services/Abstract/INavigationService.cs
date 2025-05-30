@@ -4,4 +4,6 @@ public interface INavigationService
 {
     public void GoToAllDiseases();
     public void GoToSearchDiseases();
+    public void GoToAddUserInfo();
+    public void GoToInfo();
 }

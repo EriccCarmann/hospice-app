@@ -1,0 +1,98 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HospiceApp.Views.MultiStepFormResultView"
+             IsVisible="{Binding IsMultiStepFormResultVisible}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Form Summary"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Personal Data Section -->
+            <Border Stroke="Gray" 
+                    StrokeThickness="1" 
+                    Padding="10" 
+                    StrokeShape="RoundRectangle, 20, 20, 20, 20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Personal Data" 
+                           FontSize="18" 
+                           FontAttributes="Bold" />
+
+                    <Grid ColumnDefinitions="*, Auto"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                          RowSpacing="5">
+                        <Label Text="Full Name:" />
+                        <Label Text="{Binding FullName}" Grid.Column="1" />
+
+                        <Label Text="Date of Birth:" Grid.Row="1" />
+                        <Label Text="{Binding DateOfBirth}" Grid.Row="1" Grid.Column="1" />
+
+                        <Label Text="Address:" Grid.Row="2" />
+                        <Label Text="{Binding FullAddress}" Grid.Row="2" Grid.Column="1" />
+
+                        <Label Text="Phone Number:" Grid.Row="3" />
+                        <Label Text="{Binding PhoneNumber}" Grid.Row="3" Grid.Column="1" />
+
+                        <Label Text="Secondary Phone:" Grid.Row="4" />
+                        <Label Text="{Binding SecondaryPhoneNumber}" Grid.Row="4" Grid.Column="1" />
+
+                        <Label Text="Primary Insurance:" Grid.Row="5" />
+                        <Label Text="{Binding PrimaryInsurance}" Grid.Row="5" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Disease Section -->
+            <Border Stroke="Gray" StrokeThickness="1" Padding="10" StrokeShape="RoundRectangle, 20, 20, 20, 20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Chosen Disease" 
+                           FontSize="18" 
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding ChosenDisease}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Symptoms Section -->
+            <Border Stroke="Gray" 
+                    StrokeThickness="1" 
+                    Padding="10" 
+                    StrokeShape="RoundRectangle, 20, 20, 20, 20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Symptoms" FontSize="18" FontAttributes="Bold" />
+
+                    <Grid ColumnDefinitions="*, Auto"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                          RowSpacing="5">
+                        <Label Text="Pain Level:" />
+                        <Label Text="{Binding PainLevel}" Grid.Column="1" />
+
+                        <Label Text="Dyspnea:" Grid.Row="1" />
+                        <Label Text="{Binding DyspneaLevel}" Grid.Row="1" Grid.Column="1" />
+
+                        <Label Text="Nausea:" Grid.Row="2" />
+                        <Label Text="{Binding NauseaLevel}" Grid.Row="2" Grid.Column="1" />
+
+                        <Label Text="Fatigue:" Grid.Row="3" />
+                        <Label Text="{Binding FatigueLevel}" Grid.Row="3" Grid.Column="1" />
+
+                        <Label Text="Anxiety:" Grid.Row="4" />
+                        <Label Text="{Binding AnxietyLevel}" Grid.Row="4" Grid.Column="1" />
+
+                        <Label Text="Confusion:" Grid.Row="5" />
+                        <Label Text="{Binding ConfusionLevel}" Grid.Row="5" Grid.Column="1" />
+
+                        <Label Text="Needs Symptom Support:" Grid.Row="6" />
+                        <Label Text="{Binding NeedsSymptomSupport}" Grid.Row="6" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            
+            <Label Text="Hospice eligible"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="LimeGreen"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
