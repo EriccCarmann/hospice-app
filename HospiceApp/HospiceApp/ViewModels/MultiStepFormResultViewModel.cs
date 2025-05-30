@@ -9,7 +9,7 @@ public partial class MultiStepFormResultViewModel : ObservableObject
     
     [ObservableProperty] private string _fullName;
     [ObservableProperty] private string _dateOfBirth;
-    [ObservableProperty] private string _fullAdress;
+    [ObservableProperty] private string _fullAddress;
     [ObservableProperty] private string _phoneNumber;
     [ObservableProperty] private string _secondaryPhoneNumber;
     [ObservableProperty] private string _primaryInsurance;
@@ -27,7 +27,7 @@ public partial class MultiStepFormResultViewModel : ObservableObject
     {
         FullName = demographics.FullName;
         DateOfBirth = demographics.DateOfBirth.ToString();
-        FullAdress = demographics.FullAdress;
+        FullAddress = demographics.FullAddress;
         PhoneNumber = demographics.PhoneNumber;
         SecondaryPhoneNumber = demographics.SecondaryPhoneNumber;
         PrimaryInsurance = demographics.PrimaryInsurance;

@@ -11,7 +11,7 @@ public partial class PatientDemographicsViewModel : ObservableObject
     
     [ObservableProperty] private string _fullName;
     [ObservableProperty] private DateTime _dateOfBirth = DateTime.Today;
-    [ObservableProperty] private string _fullAdress;
+    [ObservableProperty] private string _fullAddress;
     [ObservableProperty] private string _phoneNumber;
     [ObservableProperty] private string _secondaryPhoneNumber;
     [ObservableProperty] private string _primaryInsurance;
@@ -22,7 +22,7 @@ public partial class PatientDemographicsViewModel : ObservableObject
         {
             FullName = FullName,
             DateOfBirth = DateOnly.FromDateTime(DateOfBirth),
-            FullAdress = FullAdress,
+            FullAddress = FullAddress,
             PhoneNumber = PhoneNumber,
             SecondaryPhoneNumber = SecondaryPhoneNumber,
             PrimaryInsurance = PrimaryInsurance

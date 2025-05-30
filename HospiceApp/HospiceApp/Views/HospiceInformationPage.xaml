@@ -90,7 +90,29 @@
                     </VerticalStackLayout>
                 </Frame>
             </toolkit:Expander>
-            
+            <!-- Location Expander -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="📍 Our Location"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </toolkit:Expander.Header>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Find us at our main facility:"
+                               FontSize="14"
+                               TextColor="Gray" />
+                        <Image Source="our_location.png"
+                               HeightRequest="200"
+                               Aspect="AspectFit" />
+                        <Label Text="123 Serenity Lane, Warsaw, Poland"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </toolkit:Expander>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

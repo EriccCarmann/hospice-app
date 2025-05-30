@@ -39,7 +39,7 @@
                    FontAttributes="Bold"/>
             <Entry Grid.Row="2" Grid.Column="1"
                    Placeholder="Enter address"
-                   Text="{Binding FullAdress}"
+                   Text="{Binding FullAddress}"
                    Keyboard="Text"/>
 
             <!-- Phone Number -->

@@ -91,6 +91,7 @@
             <Label Text="Hospice eligible"
                    FontSize="20"
                    FontAttributes="Bold"
+                   TextColor="LimeGreen"
                    HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>

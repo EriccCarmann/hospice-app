@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -8,8 +7,29 @@
              xmlns:controls="http://zoft.MauiExtensions/Controls"
              x:DataType="viewmodel:SearchDiseasesViewModel"
              x:Class="HospiceApp.Views.SearchDiseasesPage">
-    <ContentPage.Content>
-        <VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <Style x:Key="DiseaseCardStyle" TargetType="Border">
+            <Setter Property="Stroke" Value="LightGray" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="StrokeShape">
+                <Setter.Value>
+                    <RoundRectangle CornerRadius="8" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0,0,0,20" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black" Opacity="0.2" Offset="2,2" Radius="4" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="10,0,10,0">
             <Grid ColumnDefinitions="*,Auto" Padding="10">
                 <controls:AutoCompleteEntry 
                     Grid.Column="0"
@@ -27,55 +47,48 @@
                         Text="Search"
                         Command="{Binding SearchCommand}" />
             </Grid>
-            <CollectionView  
-                    ItemsSource="{Binding Diseases}"  
-                    EmptyView="No diseases to display."  
-                    SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Disease">
+
+            <CollectionView ItemsSource="{Binding Diseases}"  
+                            EmptyView="No diseases to display."  
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Disease">
+                        <Border Style="{StaticResource DiseaseCardStyle}">
                             <toolkit:Expander>
                                 <toolkit:Expander.Header>
                                     <Grid Padding="10" ColumnDefinitions="*,Auto">
-                                        <Label  
-                                            Text="{Binding Name}"  
-                                            FontAttributes="Bold"  
-                                            FontSize="18"  
-                                            VerticalOptions="Center" />
-                                        <Label  
-                                            Grid.Column="1"  
-                                            Text="{Binding ICDCode}"  
-                                            FontSize="14"  
-                                            VerticalOptions="Center"
-                                            TextColor="Gray"/>
+                                        <Label Text="{Binding Name}"  
+                                               FontAttributes="Bold"  
+                                               FontSize="18"  
+                                               VerticalOptions="Center" />
+                                        <Label Grid.Column="1"  
+                                               Text="{Binding ICDCode}"  
+                                               FontSize="14"  
+                                               VerticalOptions="Center"
+                                               TextColor="Gray"/>
                                     </Grid>
                                 </toolkit:Expander.Header>
                                 <toolkit:Expander.Content>
-                                    <VerticalStackLayout  
-                                        Padding="10"  
-                                        Spacing="8">
-                                        <Label  
-                                            Text="{Binding Description}"  
-                                            FontSize="14"  
-                                            LineBreakMode="WordWrap" />
+                                    <VerticalStackLayout Padding="10" Spacing="8">
+                                        <Label Text="{Binding Description}"  
+                                               FontSize="14"  
+                                               LineBreakMode="WordWrap" />
 
-                                        <HorizontalStackLayout  
-                                            Spacing="5"  
-                                            VerticalOptions="Center">
-                                            <Label  
-                                                Text="Hospice eligible:"  
-                                                FontAttributes="Italic"  
-                                                VerticalOptions="Center"/>
-                                            <Switch  
-                                                IsToggled="{Binding IsHospiceEligible}"  
-                                                IsEnabled="False"  
-                                                VerticalOptions="Center" />
+                                        <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                            <Label Text="Hospice eligible:"  
+                                                   FontAttributes="Italic"  
+                                                   VerticalOptions="Center"/>
+                                            <Switch IsToggled="{Binding IsHospiceEligible}"  
+                                                    IsEnabled="False"  
+                                                    VerticalOptions="Center" />
                                         </HorizontalStackLayout>
                                     </VerticalStackLayout>
                                 </toolkit:Expander.Content>
                             </toolkit:Expander>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
