@@ -19,4 +19,9 @@ public class NavigationService : INavigationService
     {
         Shell.Current.GoToAsync($"{nameof(InputUserDataPage)}");
     }
+
+    public void GoToInfo()
+    {
+        Shell.Current.GoToAsync($"{nameof(HospiceInformationPage)}");
+    }
 }

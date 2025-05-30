@@ -15,6 +15,7 @@ public partial class MainViewModel : ObservableObject
     public IRelayCommand AllDiseases { get; set; }
     public IRelayCommand SearchDisease { get; set; }
     public IRelayCommand AddUserInfo { get; set; }
+    public IRelayCommand OpenInfoScreen { get; set; }
   
     public MainViewModel(INavigationService navigationService)
     {
@@ -22,6 +23,7 @@ public partial class MainViewModel : ObservableObject
         AllDiseases = new RelayCommand(GoToAllDiseases);
         SearchDisease = new RelayCommand(GoToSearchDiseases);
         AddUserInfo = new RelayCommand(GoToAddUserInfo);
+        OpenInfoScreen = new RelayCommand(GoToInfo);
     }
 
     private void GoToAddUserInfo()
@@ -37,5 +39,10 @@ public partial class MainViewModel : ObservableObject
     private void GoToSearchDiseases()
     {
         _navigationService.GoToSearchDiseases();
+    }
+
+    private void GoToInfo()
+    {
+        _navigationService.GoToInfo();
     }
 }

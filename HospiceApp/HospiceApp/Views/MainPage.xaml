@@ -6,53 +6,103 @@
     xmlns:views="clr-namespace:HospiceApp.Views"
     x:DataType="viewmodel:MainViewModel"  
     x:Class="HospiceApp.Views.MainPage">
-  <VerticalStackLayout  Margin="0,400,0,0"
-      Padding="30,0"  
-      Spacing="25">
-      <Grid>
-          <Grid.RowDefinitions>
-              <RowDefinition Height="*" />
-              <RowDefinition Height="*" />
-              <RowDefinition Height="100" />
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*" />
-              <ColumnDefinition Width="*" />
-          </Grid.ColumnDefinitions>
+      <ScrollView HorizontalOptions="Center">
+        <Grid Padding="20"
+              RowSpacing="20"
+              ColumnSpacing="20"
+              VerticalOptions="Center"
+              HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <VerticalStackLayout Grid.Row="0" Grid.Column="0"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center">
-              <ImageButton Source="list.png"
-                           HeightRequest="30"
-                           WidthRequest="30"
-                           Command="{Binding AllDiseases}" />
-              <Label Text="All diseases" 
-                     HorizontalOptions="Center"/>
-          </VerticalStackLayout>
+            <!-- All Diseases Tile -->
+            <Frame Grid.Row="0" 
+                   Grid.Column="0"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   CornerRadius="12"
+                   HasShadow="True"
+                   BackgroundColor="{DynamicResource TileBackgroundColor}"
+                   Padding="15">
+                <StackLayout HorizontalOptions="Center" 
+                             VerticalOptions="Center">
+                    <ImageButton Source="list.png"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Command="{Binding AllDiseases}"/>
+                    <Label Text="All Diseases"
+                           FontSize="Medium"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
 
-          <VerticalStackLayout Grid.Row="0" Grid.Column="1"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center">
-              <ImageButton Source="search.png"
-                           HeightRequest="30"
-                           WidthRequest="30"
-                           Command="{Binding SearchDisease}" />
-              <Label Text="Search diseases" 
-                     HorizontalOptions="Center"/>
-          </VerticalStackLayout>
-          
-          <VerticalStackLayout Grid.Row="1" Grid.Column="0"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center">
-              <ImageButton Source="user_info.png"
-                           HeightRequest="30"
-                           WidthRequest="30"
-                           Command="{Binding AddUserInfo}" />
-              <Label Text="Add user info" 
-                     HorizontalOptions="Center"/>
-          </VerticalStackLayout>
+            <!-- Search Diseases Tile -->
+            <Frame Grid.Row="0" 
+                   Grid.Column="1"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   CornerRadius="12"
+                   HasShadow="True"
+                   BackgroundColor="{DynamicResource TileBackgroundColor}"
+                   Padding="15">
+                <StackLayout HorizontalOptions="Center" 
+                             VerticalOptions="Center">
+                    <ImageButton Source="search.png"
+                                 HeightRequest="50"
+                                 WidthRequest="50"
+                                 Command="{Binding SearchDisease}"/>
+                    <Label Text="  Search&#10;Diseases"
+                           FontSize="Medium"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
 
-      </Grid>
-  </VerticalStackLayout>
+            <!-- Add User Info Tile -->
+            <Frame Grid.Row="1" 
+                   Grid.Column="0"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   CornerRadius="12"
+                   HasShadow="True"
+                   BackgroundColor="{DynamicResource TileBackgroundColor}"
+                   Padding="15">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ImageButton Source="user_info.png"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Command="{Binding AddUserInfo}"/>
+                    <Label Text="Add User Info"
+                           FontSize="Medium"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Info card -->
+            <Frame Grid.Row="1" Grid.Column="1"
+                   CornerRadius="12"
+                   HasShadow="True"
+                   BackgroundColor="{DynamicResource TileBackgroundColor}"
+                   Padding="15">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ImageButton Source="info.png"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Command="{Binding OpenInfoScreen}"/>
+                    <Label Text="Information"
+                           FontSize="Medium"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+    </ScrollView>
 </ContentPage>

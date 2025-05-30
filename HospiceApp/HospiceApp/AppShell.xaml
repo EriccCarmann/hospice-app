@@ -6,13 +6,13 @@
     xmlns:local="clr-namespace:HospiceApp.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="HospiceApp">
-
-    <TabBar>
-        <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
-        </Tab>
-        <Tab Title="About">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
-        </Tab>
-    </TabBar>
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    <!-- <TabBar> -->
+    <!--     <Tab Title="Home"> -->
+    <!--         <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/> -->
+    <!--     </Tab> -->
+    <!--     <Tab Title="About"> -->
+    <!--         <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/> -->
+    <!--     </Tab> -->
+    <!-- </TabBar> -->
 </Shell>
