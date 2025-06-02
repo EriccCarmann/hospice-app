@@ -228,4 +228,43 @@ public class StrapiService : IStrapiService
 
         return response;
     }
+    
+    public async Task<List<Symptoms>> GetSymptomsByDiseaseNameAsync(string diseaseName)
+    {
+        var symptoms = new List<Symptoms>();
+
+        try
+        {
+            var encodedName = Uri.EscapeDataString(diseaseName);
+            var response = await TryGetResponse($"/api/symptoms?filters[disease][Name][$eq]={encodedName}");
+
+            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+            var dataArray = jsonDoc.RootElement
+                .GetProperty("data")
+                .EnumerateArray();
+
+            foreach (var item in dataArray)
+            {
+                var symptom = new Symptoms
+                {
+                    Disease = diseaseName,
+                    PainLevel = item.GetProperty("PainLevel").GetDouble(),
+                    DyspneaLevel = item.GetProperty("Dyspnea").GetDouble(),
+                    NauseaLevel = item.GetProperty("Nausea").GetDouble(),
+                    FatigueLevel = item.GetProperty("Fatigue").GetDouble(),
+                    AnxietyLevel = item.GetProperty("Anxiety").GetDouble(),
+                    ConfusionLevel = item.GetProperty("Confusion").GetDouble(),
+                    NeedsSymptomSupport = item.GetProperty("NeedSymptomManagementSupport").GetBoolean() ? "Yes" : "No"
+                };
+
+                symptoms.Add(symptom);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error loading symptoms for disease '{diseaseName}': {ex}");
+        }
+
+        return symptoms;
+    }
 }

@@ -2,6 +2,7 @@ namespace HospiceApp.Models;
 
 public class Symptoms
 {
+    public string Disease { get; set; } = string.Empty;
     public double PainLevel { get; set; }
     public double DyspneaLevel { get; set; }
     public double NauseaLevel { get; set; }
