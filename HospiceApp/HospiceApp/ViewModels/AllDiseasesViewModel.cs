@@ -18,12 +18,29 @@ public partial class AllDiseasesViewModel : ObservableObject
     public IRelayCommand<Disease> EditCommand { get; set; } 
     public IAsyncRelayCommand AddDiseaseCommand { get; set; } 
     public IAsyncRelayCommand<Disease> DeleteCommand { get; set; } 
+    
+    [ObservableProperty] private double _painLevel;
+    [ObservableProperty] private double _dyspnea;
+    [ObservableProperty] private double _nausea;
+    [ObservableProperty] private double _fatigue;
+    [ObservableProperty] private double _anxiety;
+    [ObservableProperty] private double _confusion;
+    [ObservableProperty] private string _needSymptomManagementSupport;
+    
     public AllDiseasesViewModel(IStrapiService strapiService, IPopupService popupService)
     {
         _strapiService = strapiService;
         _popupService = popupService;
         
         GetDiseases();
+        
+        _painLevel = 0;
+        _dyspnea = 0;
+        _nausea = 0;
+        _fatigue = 0;
+        _anxiety = 0;
+        _confusion = 0;
+        _needSymptomManagementSupport = "No";
         
         EditCommand = new RelayCommand<Disease>(EditDisease);
         AddDiseaseCommand = new AsyncRelayCommand(AddDisease);
@@ -83,8 +100,6 @@ public partial class AllDiseasesViewModel : ObservableObject
                 Diseases.Add(newDisease);
             };
         });
-        
-        
     }
     
     private async Task GetDiseases()
@@ -93,6 +108,7 @@ public partial class AllDiseasesViewModel : ObservableObject
         foreach (var disease in diseasesList)
         {
             Diseases.Add(disease);
+            Console.WriteLine(_strapiService.GetSymptomsByDiseaseNameAsync(disease.Name));
         }
     }
 }

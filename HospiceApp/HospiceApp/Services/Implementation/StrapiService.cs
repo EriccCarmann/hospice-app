@@ -68,37 +68,6 @@ public class StrapiService : IStrapiService
         return diseases;
     }
 
-    public async Task<Disease> GetDiseaseByFullNameAsync(string name)
-    {
-        var disease = new Disease();
-
-        try
-        {
-            var encoded = Uri.EscapeDataString(name);
-            var response = await TryGetResponse($"/api/diseases?filters[Name][$eq]={encoded}");
-
-            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
-            var dataObject = jsonDoc.RootElement
-                .GetProperty("data")
-                .EnumerateArray()
-                .First();
-
-            disease = new Disease
-            {
-                Name                = dataObject.GetProperty("Name").GetString() ?? string.Empty,
-                Description         = dataObject.GetProperty("Description").GetString() ?? string.Empty,
-                ICDCode             = dataObject.GetProperty("ICDCode").GetString() ?? string.Empty,
-                IsHospiceEligible   = dataObject.GetProperty("IsHospiceEligible").GetBoolean()
-            };
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"Error loading diseases: {ex}");
-        }
-
-        return disease;
-    }
-    
     public async Task<List<Disease>> GetDiseasesByNameAsync(string substring)
     {
         var diseases = new List<Disease>();

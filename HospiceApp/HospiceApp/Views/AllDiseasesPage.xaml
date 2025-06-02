@@ -7,7 +7,6 @@
              x:DataType="viewmodel:AllDiseasesViewModel" 
              x:Class="HospiceApp.Views.AllDiseasesPage"
              x:Name="ThisPage">
-
   <ContentPage.Resources>
     <!-- Define a reusable style for the Border -->
     <Style x:Key="DiseaseCardStyle" TargetType="Border">
@@ -61,7 +60,8 @@
                       <Label Text="{Binding Description}"  
                              FontSize="14"  
                              LineBreakMode="WordWrap" />
-                      <Grid ColumnDefinitions="Auto,*,Auto" Padding="10">
+                      <Grid ColumnDefinitions="Auto,*,Auto"
+                            Padding="10">
                         <HorizontalStackLayout Grid.Column="0" Spacing="10" VerticalOptions="Center">
                           <Label Text="Hospice eligible:"
                                  FontAttributes="Italic"
@@ -71,6 +71,57 @@
                                   VerticalOptions="Center" />
                         </HorizontalStackLayout>
                       </Grid>
+                      
+                      <Grid ColumnDefinitions="*,Auto,*,Auto"
+                            RowDefinitions="Auto,Auto,Auto">
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Pain: "/>
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Margin="0,0,10,0"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.PainLevel}"/>
+                        
+                        <Label Grid.Row="0"
+                               Grid.Column="2"
+                               Text="Dyspnea: "/>
+                        <Label Grid.Row="0"
+                               Grid.Column="3"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Dyspnea}"/>
+                        
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Nausea: "/>
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Nausea}"/>
+                        
+                        <Label Grid.Row="1"
+                               Grid.Column="2"
+                               Text="Fatigue: "/>
+                        <Label Grid.Row="1"
+                               Grid.Column="3"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Fatigue}"/>
+                        
+                        <Label Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Anxiety: "/>
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Anxiety}"/>
+                        
+                        <Label Grid.Row="2"
+                               Grid.Column="2"
+                               Text="Confusion: "/>
+                        <Label Grid.Row="2"
+                               Grid.Column="3"
+                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Confusion}"/>
+                      </Grid>
+                      <HorizontalStackLayout>
+                          <Label Text="Need Symptom Management Support: "/>
+                          <Label VerticalOptions="End"
+                                 Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.NeedSymptomManagementSupport}"/>
+                      </HorizontalStackLayout>
                     </VerticalStackLayout>
                   </toolkit:Expander.Content>
                 </toolkit:Expander>
