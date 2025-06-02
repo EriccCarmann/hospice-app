@@ -5,12 +5,14 @@ using CommunityToolkit.Mvvm.Input;
 using HospiceApp.Models;
 using HospiceApp.Services.Abstract;
 using HospiceApp.Views;
+using zoft.MauiExtensions.Core.Extensions;
 
 namespace HospiceApp.ViewModels;
 
 public partial class AllDiseasesViewModel : ObservableObject
 {
     public ObservableCollection<Disease> Diseases { get; } = new ObservableCollection<Disease>();
+    public ObservableCollection<Symptoms> Symptoms { get; } = new ObservableCollection<Symptoms>();
     
     private readonly IStrapiService _strapiService;
     private readonly IPopupService _popupService;
@@ -107,8 +109,9 @@ public partial class AllDiseasesViewModel : ObservableObject
         var diseasesList = await _strapiService.GetDiseasesAsync();
         foreach (var disease in diseasesList)
         {
+            var symptoms = await _strapiService.GetSymptomsByDiseaseNameAsync(disease.Name);
+            disease.Symptoms.AddRange(symptoms);
             Diseases.Add(disease);
-            Console.WriteLine(_strapiService.GetSymptomsByDiseaseNameAsync(disease.Name));
         }
     }
 }

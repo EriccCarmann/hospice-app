@@ -71,7 +71,12 @@
                                   VerticalOptions="Center" />
                         </HorizontalStackLayout>
                       </Grid>
-                      
+                      <CollectionView ItemsSource="{Binding Symptoms}"
+                                    SelectionMode="None">
+                          <CollectionView.ItemTemplate>
+                              <DataTemplate x:DataType="models:Symptoms">
+                                  
+                          <VerticalStackLayout>    
                       <Grid ColumnDefinitions="*,Auto,*,Auto"
                             RowDefinitions="Auto,Auto,Auto">
                         <Label Grid.Row="0"
@@ -80,48 +85,52 @@
                         <Label Grid.Row="0"
                                Grid.Column="1"
                                Margin="0,0,10,0"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.PainLevel}"/>
+                               Text="{Binding PainLevel}"/>
                         
                         <Label Grid.Row="0"
                                Grid.Column="2"
                                Text="Dyspnea: "/>
                         <Label Grid.Row="0"
                                Grid.Column="3"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Dyspnea}"/>
+                               Text="{Binding DyspneaLevel}"/>
                         
                         <Label Grid.Row="1"
                                Grid.Column="0"
                                Text="Nausea: "/>
                         <Label Grid.Row="1"
                                Grid.Column="1"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Nausea}"/>
+                               Text="{Binding NauseaLevel}"/>
                         
                         <Label Grid.Row="1"
                                Grid.Column="2"
                                Text="Fatigue: "/>
                         <Label Grid.Row="1"
                                Grid.Column="3"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Fatigue}"/>
+                               Text="{Binding FatigueLevel}"/>
                         
                         <Label Grid.Row="2"
                                Grid.Column="0"
                                Text="Anxiety: "/>
                         <Label Grid.Row="2"
                                Grid.Column="1"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Anxiety}"/>
+                               Text="{Binding AnxietyLevel}"/>
                         
                         <Label Grid.Row="2"
                                Grid.Column="2"
                                Text="Confusion: "/>
                         <Label Grid.Row="2"
                                Grid.Column="3"
-                               Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.Confusion}"/>
+                               Text="{Binding ConfusionLevel}"/>
                       </Grid>
                       <HorizontalStackLayout>
                           <Label Text="Need Symptom Management Support: "/>
                           <Label VerticalOptions="End"
-                                 Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.NeedSymptomManagementSupport}"/>
+                                 Text="{Binding NeedsSymptomSupport}"/>
                       </HorizontalStackLayout>
+                      </VerticalStackLayout>
+                              </DataTemplate>
+                          </CollectionView.ItemTemplate>
+                      </CollectionView>
                     </VerticalStackLayout>
                   </toolkit:Expander.Content>
                 </toolkit:Expander>
