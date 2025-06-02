@@ -5,12 +5,14 @@ using CommunityToolkit.Mvvm.Input;
 using HospiceApp.Models;
 using HospiceApp.Services.Abstract;
 using HospiceApp.Views;
+using zoft.MauiExtensions.Core.Extensions;
 
 namespace HospiceApp.ViewModels;
 
 public partial class AllDiseasesViewModel : ObservableObject
 {
     public ObservableCollection<Disease> Diseases { get; } = new ObservableCollection<Disease>();
+    public ObservableCollection<Symptoms> Symptoms { get; } = new ObservableCollection<Symptoms>();
     
     private readonly IStrapiService _strapiService;
     private readonly IPopupService _popupService;
@@ -18,12 +20,29 @@ public partial class AllDiseasesViewModel : ObservableObject
     public IRelayCommand<Disease> EditCommand { get; set; } 
     public IAsyncRelayCommand AddDiseaseCommand { get; set; } 
     public IAsyncRelayCommand<Disease> DeleteCommand { get; set; } 
+    
+    [ObservableProperty] private double _painLevel;
+    [ObservableProperty] private double _dyspnea;
+    [ObservableProperty] private double _nausea;
+    [ObservableProperty] private double _fatigue;
+    [ObservableProperty] private double _anxiety;
+    [ObservableProperty] private double _confusion;
+    [ObservableProperty] private string _needSymptomManagementSupport;
+    
     public AllDiseasesViewModel(IStrapiService strapiService, IPopupService popupService)
     {
         _strapiService = strapiService;
         _popupService = popupService;
         
         GetDiseases();
+        
+        _painLevel = 0;
+        _dyspnea = 0;
+        _nausea = 0;
+        _fatigue = 0;
+        _anxiety = 0;
+        _confusion = 0;
+        _needSymptomManagementSupport = "No";
         
         EditCommand = new RelayCommand<Disease>(EditDisease);
         AddDiseaseCommand = new AsyncRelayCommand(AddDisease);
@@ -83,8 +102,6 @@ public partial class AllDiseasesViewModel : ObservableObject
                 Diseases.Add(newDisease);
             };
         });
-        
-        
     }
     
     private async Task GetDiseases()
@@ -92,6 +109,8 @@ public partial class AllDiseasesViewModel : ObservableObject
         var diseasesList = await _strapiService.GetDiseasesAsync();
         foreach (var disease in diseasesList)
         {
+            var symptoms = await _strapiService.GetSymptomsByDiseaseNameAsync(disease.Name);
+            disease.Symptoms.AddRange(symptoms);
             Diseases.Add(disease);
         }
     }

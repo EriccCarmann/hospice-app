@@ -68,37 +68,6 @@ public class StrapiService : IStrapiService
         return diseases;
     }
 
-    public async Task<Disease> GetDiseaseByFullNameAsync(string name)
-    {
-        var disease = new Disease();
-
-        try
-        {
-            var encoded = Uri.EscapeDataString(name);
-            var response = await TryGetResponse($"/api/diseases?filters[Name][$eq]={encoded}");
-
-            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
-            var dataObject = jsonDoc.RootElement
-                .GetProperty("data")
-                .EnumerateArray()
-                .First();
-
-            disease = new Disease
-            {
-                Name                = dataObject.GetProperty("Name").GetString() ?? string.Empty,
-                Description         = dataObject.GetProperty("Description").GetString() ?? string.Empty,
-                ICDCode             = dataObject.GetProperty("ICDCode").GetString() ?? string.Empty,
-                IsHospiceEligible   = dataObject.GetProperty("IsHospiceEligible").GetBoolean()
-            };
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"Error loading diseases: {ex}");
-        }
-
-        return disease;
-    }
-    
     public async Task<List<Disease>> GetDiseasesByNameAsync(string substring)
     {
         var diseases = new List<Disease>();
@@ -227,5 +196,44 @@ public class StrapiService : IStrapiService
         }
 
         return response;
+    }
+    
+    public async Task<List<Symptoms>> GetSymptomsByDiseaseNameAsync(string diseaseName)
+    {
+        var symptoms = new List<Symptoms>();
+
+        try
+        {
+            var encodedName = Uri.EscapeDataString(diseaseName);
+            var response = await TryGetResponse($"/api/symptoms?filters[disease][Name][$eq]={encodedName}");
+
+            using var jsonDoc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+            var dataArray = jsonDoc.RootElement
+                .GetProperty("data")
+                .EnumerateArray();
+
+            foreach (var item in dataArray)
+            {
+                var symptom = new Symptoms
+                {
+                    Disease = diseaseName,
+                    PainLevel = item.GetProperty("PainLevel").GetDouble(),
+                    DyspneaLevel = item.GetProperty("Dyspnea").GetDouble(),
+                    NauseaLevel = item.GetProperty("Nausea").GetDouble(),
+                    FatigueLevel = item.GetProperty("Fatigue").GetDouble(),
+                    AnxietyLevel = item.GetProperty("Anxiety").GetDouble(),
+                    ConfusionLevel = item.GetProperty("Confusion").GetDouble(),
+                    NeedsSymptomSupport = item.GetProperty("NeedSymptomManagementSupport").GetBoolean() ? "Yes" : "No"
+                };
+
+                symptoms.Add(symptom);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error loading symptoms for disease '{diseaseName}': {ex}");
+        }
+
+        return symptoms;
     }
 }

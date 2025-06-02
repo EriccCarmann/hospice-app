@@ -9,4 +9,5 @@ public interface IStrapiService
     public Task<Disease> AddDiseaseAsync(Disease disease);
     public Task UpdateDiseaseAsync(string oldName, Disease disease);
     public Task DeleteDiseaseAsync(string name);
+    public Task<List<Symptoms>> GetSymptomsByDiseaseNameAsync(string diseaseName);
 }
