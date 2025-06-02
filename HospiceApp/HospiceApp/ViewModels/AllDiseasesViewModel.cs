@@ -36,14 +36,6 @@ public partial class AllDiseasesViewModel : ObservableObject
         
         GetDiseases();
         
-        _painLevel = 0;
-        _dyspnea = 0;
-        _nausea = 0;
-        _fatigue = 0;
-        _anxiety = 0;
-        _confusion = 0;
-        _needSymptomManagementSupport = "No";
-        
         EditCommand = new RelayCommand<Disease>(EditDisease);
         AddDiseaseCommand = new AsyncRelayCommand(AddDisease);
         DeleteCommand = new AsyncRelayCommand<Disease>(DeleteDisease);
