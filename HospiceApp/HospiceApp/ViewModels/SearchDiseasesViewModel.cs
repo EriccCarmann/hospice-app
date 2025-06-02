@@ -83,6 +83,8 @@ public partial class SearchDiseasesViewModel : ObservableObject
         
         foreach (var disease in diseases)
         {
+            var symptoms = await _strapiService.GetSymptomsByDiseaseNameAsync(disease.Name);
+            disease.Symptoms.AddRange(symptoms);
             Diseases.Add(disease);
         }
     }
